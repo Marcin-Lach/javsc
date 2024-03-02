@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://2e8hhgmk1ls3"]
+
+[ext_resource type="Texture2D" uid="uid://jrr7qxwty5og" path="res://player-sprite.png" id="1_j81ll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8su84"]
+size = Vector2(16, 16)
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_8su84")
+debug_color = Color(0.117647, 0.615686, 0.576471, 0.407843)
+
+[node name="Sprite" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_j81ll")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
