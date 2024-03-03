@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://2e8hhgmk1ls3"]
+[gd_scene load_steps=4 format=3 uid="uid://2e8hhgmk1ls3"]
 
 [ext_resource type="Texture2D" uid="uid://jrr7qxwty5og" path="res://player-sprite.png" id="1_j81ll"]
+[ext_resource type="Script" path="res://PlayerMovement.gd" id="1_k0icr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8su84"]
 size = Vector2(16, 16)
@@ -9,6 +10,8 @@ size = Vector2(16, 16)
 
 [node name="Player" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
+linear_damp = 15.0
+script = ExtResource("1_k0icr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_8su84")
