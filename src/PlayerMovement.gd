@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+@export var speed = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,17 +11,9 @@ func _ready():
 func _process(delta):
 	pass
 	
-func _physics_process(delta):
-	if Input.is_key_pressed(KEY_RIGHT):
-		linear_velocity.x += 10
-		
-	if Input.is_key_pressed(KEY_LEFT):
-		linear_velocity.x -= 10
+func set_velocity():
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	linear_velocity = input_direction * speed
 	
-	if Input.is_key_pressed(KEY_UP):
-		linear_velocity.y -= 10
-		
-	if Input.is_key_pressed(KEY_DOWN):
-		linear_velocity.y += 10
-		
-
+func _physics_process(delta):
+	set_velocity()
