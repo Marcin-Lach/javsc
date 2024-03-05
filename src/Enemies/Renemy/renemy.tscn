@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgg5pnivm85or"]
+
+[ext_resource type="Texture2D" uid="uid://p60rh5xrtjby" path="res://Enemies/Renemy/renemy-sprite.png" id="1_6pieb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gpg7w"]
+radius = 8.0
+
+[node name="Renemy" type="RigidBody2D"]
+mass = 3.0
+gravity_scale = 0.0
+linear_damp = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6pieb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gpg7w")

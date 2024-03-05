@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://1r2d3lwajqyp"]
+
+[ext_resource type="Texture2D" uid="uid://c3flckni7e1qd" path="res://Enemies/Yenemy/yenemy-sprite.png" id="1_dwxek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_focwp"]
+size = Vector2(16, 16)
+
+[node name="Yenemy" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp = 4.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dwxek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_focwp")
