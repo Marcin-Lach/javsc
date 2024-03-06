@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsdrfppncpd4h"]
+[gd_scene load_steps=5 format=3 uid="uid://dsdrfppncpd4h"]
 
 [ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_iupss"]
+[ext_resource type="Script" path="res://EnemiesSpawn.gd" id="1_vl6yq"]
 [ext_resource type="Texture2D" uid="uid://jrr7qxwty5og" path="res://Player/player-sprite.png" id="2_06xwx"]
-[ext_resource type="PackedScene" uid="uid://cgg5pnivm85or" path="res://Enemies/Renemy/renemy.tscn" id="3_cg88r"]
-[ext_resource type="PackedScene" uid="uid://1r2d3lwajqyp" path="res://Enemies/Yenemy/yenemy.tscn" id="4_6bdir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8su84"]
 size = Vector2(16, 16)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_vl6yq")
+enemies_count = 20
 
 [node name="Player" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
@@ -25,20 +26,3 @@ texture = ExtResource("2_06xwx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
-
-[node name="Renemy" parent="." instance=ExtResource("3_cg88r")]
-position = Vector2(11, -20)
-mass = 4.0
-
-[node name="Yenemy" parent="." instance=ExtResource("4_6bdir")]
-position = Vector2(-12, -32)
-mass = 10.0
-
-[node name="Renemy2" parent="." instance=ExtResource("3_cg88r")]
-position = Vector2(7, -44)
-
-[node name="Yenemy2" parent="." instance=ExtResource("4_6bdir")]
-position = Vector2(1, -66)
-
-[node name="Yenemy3" parent="." instance=ExtResource("4_6bdir")]
-position = Vector2(-33, -46)
