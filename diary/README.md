@@ -107,12 +107,19 @@ Today we will be spawning some enemies
 > Lyrics: Ozzy Osbourne - Diary of a Madman
 
 Topic: Improving README.md and moving project notes into git repository
+[Daily vlog #7](https://www.youtube.com/watch?v=OhThxiCf8RQ&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=8) 
 
-<!-- 
-To add tomorrow 
 
-[Daily vlog #7](https://www.youtube.com/watch?v=Q1WwTJUXYjk&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=7) 
--->
+## Day #8 - analysing Nordic Ashes
+
+> Earth to earth, ashes to ashes, dust to dust
+> Lyrics: Book of Common Prayer
+
+Topic: Analyze mechanics of Nordic Ashes to get some inspiration
+<!-- [Daily vlog #8]()  -->
+
+[Steam - Nordic Ashes: Survivors of Ragnarok](https://store.steampowered.com/app/2068280/Nordic_Ashes_Survivors_of_Ragnarok/)
+
 
 ---
 
