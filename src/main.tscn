@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsdrfppncpd4h"]
+[gd_scene load_steps=6 format=3 uid="uid://dsdrfppncpd4h"]
 
 [ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_iupss"]
 [ext_resource type="Script" path="res://EnemiesSpawn.gd" id="1_vl6yq"]
 [ext_resource type="Texture2D" uid="uid://jrr7qxwty5og" path="res://Player/player-sprite.png" id="2_06xwx"]
+[ext_resource type="Script" path="res://FollowPlayer.gd" id="4_8ipmc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8su84"]
 size = Vector2(16, 16)
@@ -26,3 +27,4 @@ texture = ExtResource("2_06xwx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+script = ExtResource("4_8ipmc")

@@ -116,10 +116,18 @@ Topic: Improving README.md and moving project notes into git repository
 > Lyrics: Book of Common Prayer
 
 Topic: Analyze mechanics of Nordic Ashes to get some inspiration
-<!-- [Daily vlog #8]()  -->
+[Daily vlog #8](https://www.youtube.com/watch?v=Y8P21im4TtY&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=9) 
 
 [Steam - Nordic Ashes: Survivors of Ragnarok](https://store.steampowered.com/app/2068280/Nordic_Ashes_Survivors_of_Ragnarok/)
 
+
+## Day #9 - camera following player
+
+> Wherever life takes you, you know I'll follow you
+> Lyrics: Imagine Dragons - Follow you
+
+- get_node or $ to get player node
+- use player node to get it's position and assign it to camera node position
 
 ---
 
