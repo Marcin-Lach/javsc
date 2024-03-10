@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgg5pnivm85or"]
+[gd_scene load_steps=4 format=3 uid="uid://cgg5pnivm85or"]
 
+[ext_resource type="Script" path="res://Enemies/NormalizedDiagonalMove.gd" id="1_5uory"]
 [ext_resource type="Texture2D" uid="uid://p60rh5xrtjby" path="res://Enemies/Renemy/renemy-sprite.png" id="1_6pieb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gpg7w"]
@@ -9,6 +10,7 @@ radius = 8.0
 mass = 3.0
 gravity_scale = 0.0
 linear_damp = 5.0
+script = ExtResource("1_5uory")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_6pieb")

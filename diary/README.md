@@ -129,6 +129,22 @@ Topic: Analyze mechanics of Nordic Ashes to get some inspiration
 - get_node or $ to get player node
 - use player node to get it's position and assign it to camera node position
 
+## Day #10 - enemies chasing player
+
+> And just when I think I've worked it out, these pieces move..
+> Lyrics: Karnivool - Umbra
+
+- Godot docs on [vector math](https://docs.godotengine.org/en/stable/tutorials/math/vector_math.html#introduction)
+- For further deep-dive into linear math - [Khan Academy](https://www.khanacademy.org/math/linear-algebra)
+- pythagoras theorem for movement 
+	- moving vector(1,1) will result in moving player longer distance comparing to just moving vector(1,0)
+- vector - direction ((x,y) for vector2D, (x,y,z) for vector3D) and magnitude
+	- unit vector (or direction vector, or normal) - vector with magnitude of 1
+- calculated vector should be normalized (using Vector2D.normalized() function call)
+	- normalization is reducing vectors length to 1 while preserving direction
+- position.direction_to() is already normalized
+- scripts are in [day10-notes](./day10-notes.md)
+
 ---
 
 ## Future 
@@ -156,10 +172,6 @@ we will use timer to spawn enemies at random times
 	- process - runs as often as possible
 	- physics_process - This separate process is run at a capped framerate which is set in the projects physics settings (Physics → Common → Physics Ticks per Second), at 60 FPS by default. However, there are some important caveats to this. For one, the execution is not guaranteed to be at a constant rate - if too many operations take place in a single physics step it will slow down
 
-### Day # - enemies go to character and
-“And just when I think I've worked it out
-These pieces move and I'm back to the start”
-Lyrics: Karnivool - Umbra
 
 ### Day # - enemies start to hurt
 
