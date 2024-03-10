@@ -1,16 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsdrfppncpd4h"]
+[gd_scene load_steps=13 format=3 uid="uid://dsdrfppncpd4h"]
 
 [ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_iupss"]
 [ext_resource type="Script" path="res://EnemiesSpawn.gd" id="1_vl6yq"]
 [ext_resource type="Texture2D" uid="uid://jrr7qxwty5og" path="res://Player/player-sprite.png" id="2_06xwx"]
 [ext_resource type="Script" path="res://FollowPlayer.gd" id="4_8ipmc"]
+[ext_resource type="PackedScene" uid="uid://1r2d3lwajqyp" path="res://Enemies/Yenemy/yenemy.tscn" id="5_ij164"]
+[ext_resource type="PackedScene" uid="uid://cgg5pnivm85or" path="res://Enemies/Renemy/renemy.tscn" id="6_8sbm1"]
+[ext_resource type="Script" path="res://Enemies/Yenemy/GridMoveUp.gd" id="6_plau1"]
+[ext_resource type="Script" path="res://Enemies/Renemy/UnnormalizedDiagonalMove.gd" id="8_d2lv6"]
+[ext_resource type="Texture2D" uid="uid://bhjt1j3jj6anu" path="res://bullseye.png" id="10_845cj"]
+[ext_resource type="Script" path="res://Enemies/Renemy/NormalizedDiagonalMove.gd" id="11_byk8c"]
+[ext_resource type="Script" path="res://Enemies/Yenemy/GridMoveRight.gd" id="11_cpc80"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8su84"]
 size = Vector2(16, 16)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vl6yq")
-enemies_count = 20
+enemies_count = 0
 
 [node name="Player" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
@@ -26,5 +33,42 @@ debug_color = Color(0.117647, 0.615686, 0.576471, 0.407843)
 texture = ExtResource("2_06xwx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
 script = ExtResource("4_8ipmc")
+
+[node name="YenemyMoveUpwards" parent="." instance=ExtResource("5_ij164")]
+position = Vector2(-568, 316)
+script = ExtResource("6_plau1")
+
+[node name="CollisionShape2D" parent="YenemyMoveUpwards" index="1"]
+disabled = true
+
+[node name="RenemyMoveDiagonallyUnnormalized" parent="." instance=ExtResource("6_8sbm1")]
+position = Vector2(-568, 316)
+script = ExtResource("8_d2lv6")
+
+[node name="CollisionShape2D" parent="RenemyMoveDiagonallyUnnormalized" index="1"]
+disabled = true
+
+[node name="Bullseye" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-573, 327)
+texture = ExtResource("10_845cj")
+
+[node name="YenemyMoveRightwards" parent="." instance=ExtResource("5_ij164")]
+position = Vector2(-568, 316)
+script = ExtResource("11_cpc80")
+
+[node name="CollisionShape2D" parent="YenemyMoveRightwards" index="1"]
+disabled = true
+
+[node name="YenemyMoveDiagonallyNormalized" parent="." instance=ExtResource("5_ij164")]
+position = Vector2(-568, 316)
+script = ExtResource("11_byk8c")
+
+[node name="CollisionShape2D" parent="YenemyMoveDiagonallyNormalized" index="1"]
+disabled = true
+
+[editable path="YenemyMoveUpwards"]
+[editable path="RenemyMoveDiagonallyUnnormalized"]
+[editable path="YenemyMoveRightwards"]
+[editable path="YenemyMoveDiagonallyNormalized"]
