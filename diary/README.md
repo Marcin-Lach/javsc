@@ -7,6 +7,7 @@ I will be maintaining notes for each step and planing next steps here.
 Topic: Intro and welcome  
 [Daily vlog #0](https://www.youtube.com/watch?v=tK4yK3d1Flg&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3)
 
+
 ## Day #1
 
 > “What you gonna see when you wake up?”  
@@ -14,6 +15,7 @@ Topic: Intro and welcome
 
 Topic: Vanila Godot project and GitHub desktop configuration  
 [Daily vlog #1](https://www.youtube.com/watch?v=hC9cj0s29Xo&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=2)
+
 
 ## Day #2
 
@@ -31,6 +33,7 @@ Topic: Defining Main scene Node, Camera and Player Node
     - RigidBody2d - object that is affected by physics, collide, has mass; 
     - sprite to be visible
 	- CollisionShape2D (should occupy the same space as the sprite for good UX)
+
 
 ## Day #3
 
@@ -52,6 +55,7 @@ Topic: Player Movement script
 	- setting Linear.Damp makes the RigidBody2D to lose speed (slow down and eventually stop)
     - GravityScale is used to control wheter player will be pulled downwards
 
+
 ## Day #4
 
 > "I got the mooooooves like jagger"  
@@ -61,6 +65,7 @@ Topic: Abstracting input with Input Map
 [Daily vlog #4](https://www.youtube.com/watch?v=1rPrcSxJ-fE&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=5)
 
 https://docs.godotengine.org/en/stable/tutorials/2d/2d_movement.html
+
 
 ## Day #5
 
@@ -82,6 +87,7 @@ Topic: Enemies as reuseable assets and collisions
 - add new enemy
 - `lock_rotation` on player to prevent from spinning
 
+
 ## Day #6
 
 > "This shit is not random"  
@@ -101,6 +107,7 @@ Today we will be spawning some enemies
 - `enemy.position.x`, `enemy.position.y` - to say where the enemy should be
 - `enemy.scale.x`, `enemy.scale.y` - to say how big or small the enemy should be
 
+
 ## Day #7 - starting diary
 
 > Dear Diary, I'm here to stay  
@@ -112,7 +119,7 @@ Topic: Improving README.md and moving project notes into git repository
 
 ## Day #8 - analysing Nordic Ashes
 
-> Earth to earth, ashes to ashes, dust to dust
+> Earth to earth, ashes to ashes, dust to dust  
 > Lyrics: Book of Common Prayer
 
 Topic: Analyze mechanics of Nordic Ashes to get some inspiration
@@ -123,16 +130,23 @@ Topic: Analyze mechanics of Nordic Ashes to get some inspiration
 
 ## Day #9 - camera following player
 
-> Wherever life takes you, you know I'll follow you
+> Wherever life takes you, you know I'll follow you  
 > Lyrics: Imagine Dragons - Follow you
+
+Topic: Make camera follow the player
+[Daily vlog #8](https://www.youtube.com/watch?v=_LGFOholVic&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=10)
 
 - get_node or $ to get player node
 - use player node to get it's position and assign it to camera node position
 
+
 ## Day #10 - enemies chasing player
 
-> And just when I think I've worked it out, these pieces move..
+> And just when I think I've worked it out, these pieces move...  
 > Lyrics: Karnivool - Umbra
+
+Topic: Enemies chasing player and fixing diagonal movement bug
+[Daily vlog #10](https://www.youtube.com/watch?v=tagbxehLgPY&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=11)
 
 - Godot docs on [vector math](https://docs.godotengine.org/en/stable/tutorials/math/vector_math.html#introduction)
 - For further deep-dive into linear math - [Khan Academy](https://www.khanacademy.org/math/linear-algebra)
@@ -145,22 +159,61 @@ Topic: Analyze mechanics of Nordic Ashes to get some inspiration
 - position.direction_to() is already normalized
 - scripts are in [day10-notes](./day10-notes.md)
 
+
+## Day #11 - planning next improvements
+
+> And there's no time to think
+> Lyrics: Bob Dylan: No Time to Think
+
+Topic: Plan next improvements
+[Daily vlog #11](https://www.youtube.com/watch?v=bgh81cSj5vQ&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=12)
+
 ---
 
 ## Future 
+
+## Day #12 - player dies and respawns
+
+> ... and I'm back to the start
+> Lyrics: Karnivool - Umbra
+
+Topic: Handle player spawning at starting position
+
+- Define starting position
+- modify enemies spawn script to prevent from spawning really closely to player
+
+
+## Day #13 - improve enemy spawning
+
+Topic: Make the game more fair
+
+- spawn enemies few seconds after spawning player
+	- `Timer` class to execute action based on elapsed time
+	- we will use timer to spawn enemies at random times
+	- `preload` function allows for preloading a scene - `var enemy_scene = preload("res://enemy.tscn)`
+- make enemies spawn some distance away from player
+- trigger enemy spawn few seconds after player has been spawned
+
+
+## Day #14 - animation for enemy spawning
+
+- enemy should not appear right away, there should be an indicator that an enemy will spawn at given position
+- spritesheet for animating
+
+
+### Day # Add HUD
+
+### Day # Add main menu and present different scenes
+
+### Settings menu
+
+### Pause menu with option to quit, restart, go to settings
 
 ### Day # align camera and viewport - world boundaries 
 Block the option of player going outside of the map
 fix object's positions
 	- make camera fully inside the viewport
 	- adjust calculations to accomodate for the change
-
-
-### Day # improve enemies spawning
-we will add visual hint that enemy will spawn here
-we will use timer to spawn enemies at random times
-	- `Timer` class to execute action based on elapsed time 
-	- `preload` function allows for preloading a scene - `var enemy_scene = preload("res://enemy.tscn)`
 
 ### Day # - more working on movement 
 
@@ -171,9 +224,6 @@ we will use timer to spawn enemies at random times
 - `_physics_process` vs `_process`
 	- process - runs as often as possible
 	- physics_process - This separate process is run at a capped framerate which is set in the projects physics settings (Physics → Common → Physics Ticks per Second), at 60 FPS by default. However, there are some important caveats to this. For one, the execution is not guaranteed to be at a constant rate - if too many operations take place in a single physics step it will slow down
-
-
-### Day # - enemies start to hurt
 
 
 ### Day # - github actions that build project
