@@ -6,7 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_focwp"]
 size = Vector2(16, 16)
 
-[node name="Yenemy" type="RigidBody2D"]
+[node name="Yenemy" type="RigidBody2D" groups=["enemies"]]
+mass = 6.0
 gravity_scale = 0.0
 linear_damp = 4.0
 script = ExtResource("1_af3cv")

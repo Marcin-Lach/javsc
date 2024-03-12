@@ -180,7 +180,22 @@ Topic: Plan next improvements
 Topic: Handle player spawning at starting position
 
 - Define starting position
+- add Group for "enemies"
+- add enemies to the group on being spawned
 - modify enemies spawn script to prevent from spawning really closely to player
+- set RigidBody2D.MaxContacts to more than 0 to make collsion work
+
+```python - EnemiesSpawn.gd
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	print_debug(str("enemies count", enemies.size()))
+```
+
+```python - PlayerMovement.gd
+	func _on_body_entered(body):
+	if body.is_in_group("enemies"):
+		print_debug("dead")
+		get_tree().reload_current_scene()
+```
 
 
 ## Day #13 - improve enemy spawning
@@ -231,3 +246,8 @@ fix object's positions
 
 ### Day # - attach exe as Github Release
 
+## setting
+
+- get power from void
+- set traps
+- push enemies to or lure them to The Edge

@@ -6,11 +6,12 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_gpg7w"]
 radius = 8.0
 
-[node name="Renemy" type="RigidBody2D"]
+[node name="Renemy" type="RigidBody2D" groups=["enemies"]]
 mass = 3.0
 gravity_scale = 0.0
 linear_damp = 5.0
 script = ExtResource("1_5uory")
+speed = 30
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_6pieb")

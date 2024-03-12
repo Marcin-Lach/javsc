@@ -16,4 +16,8 @@ func set_velocity():
 	linear_velocity = input_direction * speed
 	
 func _physics_process(delta):
-	set_velocity()
+	set_velocity()	
+
+func _on_body_entered(body):
+	if body.is_in_group("enemies"):
+		get_tree().reload_current_scene()

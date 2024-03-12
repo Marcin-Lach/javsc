@@ -14,6 +14,8 @@ enemies_count = 20
 
 [node name="Player" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
 lock_rotation = true
 linear_damp = 15.0
 script = ExtResource("1_iupss")
@@ -28,3 +30,5 @@ texture = ExtResource("2_06xwx")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 script = ExtResource("4_8ipmc")
+
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
