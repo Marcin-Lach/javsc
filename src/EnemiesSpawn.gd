@@ -6,9 +6,36 @@ var yenemy_scene = preload("res://Enemies/Yenemy/yenemy.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_timer_timeout():
+	var player_position = $Player.global_position
+	var safe_zone_radius = 65
+	
 	for i in enemies_count:
+		var quadrant = randi_range(0 ,3)
+		
 		var enemy_position_x = randi_range(-136, 136)
 		var enemy_position_y = randi_range(-73, 73)
+		match quadrant:
+			0:
+				enemy_position_x = randi_range(player_position.x - 136, player_position.x - 136 + safe_zone_radius)
+				enemy_position_y = randi_range(player_position.y - 73, player_position.y - 73 + safe_zone_radius)
+			1:
+				enemy_position_x = randi_range(player_position.x + 136, player_position.x + 136 - safe_zone_radius)
+				enemy_position_y = randi_range(player_position.y - 73, player_position.y - 73 + safe_zone_radius)
+			2:
+				enemy_position_x = randi_range(player_position.x + 136, player_position.x + 136 - safe_zone_radius)
+				enemy_position_y = randi_range(player_position.y + 73, player_position.y + 73 - safe_zone_radius)
+			3:
+				enemy_position_x = randi_range(player_position.x - 136, player_position.x - 136 + safe_zone_radius)
+				enemy_position_y = randi_range(player_position.y + 73, player_position.y + 73 - safe_zone_radius)
+		
 		var enemy_type = randi_range(0, 1)
 
 		var enemy
@@ -20,7 +47,3 @@ func _ready():
 		enemy.position.x = enemy_position_x
 		enemy.position.y = enemy_position_y
 		add_child(enemy)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass

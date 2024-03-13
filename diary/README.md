@@ -182,7 +182,6 @@ Topic: Handle player spawning at starting position
 - Define starting position
 - add Group for "enemies"
 - add enemies to the group on being spawned
-- modify enemies spawn script to prevent from spawning really closely to player
 - set RigidBody2D.MaxContacts to more than 0 to make collsion work
 
 ```python - EnemiesSpawn.gd
@@ -200,15 +199,74 @@ Topic: Handle player spawning at starting position
 
 ## Day #13 - improve enemy spawning
 
+> Life’s a game, but it’s not fair
+> Lyrics: Jay-Z - Run This Town
+
 Topic: Make the game more fair
 
 - spawn enemies few seconds after spawning player
 	- `Timer` class to execute action based on elapsed time
 	- we will use timer to spawn enemies at random times
 	- `preload` function allows for preloading a scene - `var enemy_scene = preload("res://enemy.tscn)`
-- make enemies spawn some distance away from player
-- trigger enemy spawn few seconds after player has been spawned
+- modify enemies spawn script to prevent from spawning really closely to player
+- change enemies spawn count to 1 to see in which quadrant they are spawned
 
+```python
+extends Node2D
+
+@export var enemies_count = 50
+var renemy_scene = preload("res://Enemies/Renemy/renemy.tscn")
+var yenemy_scene = preload("res://Enemies/Yenemy/yenemy.tscn")
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _on_enemy_spawn_timer_timeout():
+	var safe_zone_radius = 65
+	var player_position = $Player.global_position
+	
+	print_debug(str(player_position.x, " ", player_position.y))
+	
+	for i in enemies_count:		
+		var enemy_position_x
+		var enemy_position_y
+		var quadrant = randi_range(0, 3)
+		match quadrant:
+			0:
+				print_debug("quadrant 0")
+				enemy_position_x = randi_range(player_position.x - 136, player_position.x - 136 + safe_zone_radius)
+				enemy_position_y = randi_range(player_position.y - 73, player_position.y - 73 + safe_zone_radius)
+			1:
+				print_debug("quadrant 1")
+				enemy_position_x = randi_range(player_position.x + 136, player_position.x + 136 - safe_zone_radius)
+				enemy_position_y = randi_range(player_position.y - 73, player_position.y - 73 + safe_zone_radius)
+			2:
+				print_debug("quadrant 2")
+				enemy_position_x = randi_range(player_position.x + 136, player_position.x + 136 - safe_zone_radius)
+				enemy_position_y = randi_range(player_position.y + 73, player_position.y + 73 - safe_zone_radius)
+			3:
+				print_debug("quadrant 3")
+				enemy_position_x = randi_range(player_position.x - 136, player_position.x - 136 + safe_zone_radius)
+				enemy_position_y = randi_range(player_position.y + 73, player_position.y + 73 - safe_zone_radius)
+
+		var enemy_type = randi_range(0, 1)
+
+		var enemy
+		if enemy_type == 1:
+			enemy = renemy_scene.instantiate()
+		else:
+			enemy = yenemy_scene.instantiate()
+
+		enemy.position.x = enemy_position_x
+		enemy.position.y = enemy_position_y
+		add_child(enemy)
+
+```
 
 ## Day #14 - animation for enemy spawning
 
