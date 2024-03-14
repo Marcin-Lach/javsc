@@ -168,10 +168,6 @@ Topic: Enemies chasing player and fixing diagonal movement bug
 Topic: Plan next improvements
 [Daily vlog #11](https://www.youtube.com/watch?v=bgh81cSj5vQ&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=12)
 
----
-
-## Future 
-
 ## Day #12 - player dies and respawns
 
 > ... and I'm back to the start
@@ -270,17 +266,106 @@ func _on_enemy_spawn_timer_timeout():
 
 ## Day #14 - animation for enemy spawning
 
-- enemy should not appear right away, there should be an indicator that an enemy will spawn at given position
-- spritesheet for animating
+> Compensate me, animate me
+> Lyrics: Rush - Animate
 
+Topic: Add animation for enemies
+
+- enemy should not appear right away, there should be an indicator that an enemy will spawn at given position
+- add Sprite2d for spawn for renemy
+- add spawn Timer for renemy
+- ctrl + drag into script = create @onready variable
+- modify script to implement spawning indicator and setting default values for enemy
+- show and hide spawn sprite in enemy script
+- run and fail - changes must be done to yenemy, because script is reused - we have to rethink scripting strategy 
+- Sprite2D.CanvasItem.Filter = nearest to sharpen the image (remove blur)
+- Project -> Project Settings -> Rendering -> Textures -> Canvas Textures: Default Texture Filter - set to Nearest for pixel art game
+
+```phyton - NormalizedDiagonalMove.gd
+extends RigidBody2D
+
+@onready var player_node = $"/root/Main/Player"
+@export var speed = 10
+@onready var sprite_2d = $Sprite2D
+@onready var collision_shape_2d = $CollisionShape2D
+@onready var spawn_sprite = $SpawnSprite
+@onready var spawn_timer = $SpawnTimer
+
+var timer_ticks_count_until_spawn = 10
+
+func _ready():
+	collision_shape_2d.disabled = true
+	sprite_2d.hide()
+	self.freeze = true
+	spawn_timer.start()
+	spawn_sprite.show()
+
+func _physics_process(delta):
+	var direction_vector = position.direction_to(player_node.position)
+	linear_velocity = direction_vector * speed
+
+func _on_spawn_timer_timeout():
+	if(timer_ticks_count_until_spawn > 0):
+		timer_ticks_count_until_spawn -= 1
+		spawn_sprite.visible = !spawn_sprite.visible 
+	else:
+		spawn_timer.stop()
+		spawn_sprite.hide()
+		self.freeze = false
+		sprite_2d.show()
+		collision_shape_2d.disabled = false
+```
+
+
+---
+
+## Future
+
+### Day # Animating Enemies using AnimatedSprite Node
+
+https://docs.godotengine.org/en/stable/tutorials/2d/2d_sprite_animation.html
+https://www.youtube.com/watch?v=yZufjzzKtTA
+- create a spritesheet for animating
+- Project -> Project Settings -> Rendering -> Textures -> Canvas Textures: Default Texture Filter - set to Nearest
+- Project -> Project Settings -> Display -> Window -> Size: Viewport Height and Width to accomodate for smaller pixel arts
+- Project -> Project Settings -> Display -> Window -> Stretch: Mode to canvas_items, to scale up everything that we have when we make the window bigger
+- Project -> Project Settings -> turn on Advanced Settings -> Display -> Window -> Size: set default window size to have the window stretched after starting debugging (1280 x 720)
+- Debug -> Visible Collision Shapes
+- SpriteFrames resource must be attached to AnimatedSprite node
+
+### Day # Animating Player using Sprite2D with child node AnimationPlayer 
+
+https://docs.godotengine.org/en/stable/tutorials/2d/2d_sprite_animation.html
+https://www.youtube.com/watch?v=sVJEaYNOUNw
+https://www.youtube.com/watch?v=Vwj_hX9h4zo
+- create a spritesheet for animating
+- Project -> Project Settings -> Rendering -> Textures -> Canvas Textures: Default Texture Filter - set to Nearest
+- Project -> Project Settings -> Display -> Window -> Size: Viewport Height and Width to accomodate for smaller pixel arts
+- Project -> Project Settings -> Display -> Window -> Stretch: Mode to canvas_items, to scale up everything that we have when we make the window bigger
+- Project -> Project Settings -> turn on Advanced Settings -> Display -> Window -> Size: set default window size to have the window stretched after starting debugging (1280 x 720)
+- Debug -> Visible Collision Shapes
+
+- Sprite2d -> Inspector -> Animation: HFrames - number of columns with sprites in the sprite sheet; VFrames - number of rows with sprites in the sprite sheet
+- gives more power than AnimatedSprite in scripting
+- select idle animation as the one that is selected at the start, so select "Autoplay on Load"
+- for Sprite2D node, press key sign that is next to properties in Inspectorfor settings that should be unique for given animation, so they do no affect other animations in the same AnimationPlayer
+- select looping to get animation loop
+- be sure that animations have the same number of frames, because setting animation speed affects all animations
+- calling defined animation from script to play animation when moving and idle
+- in script, Sprite2d.flip_h and flip_v can be used to flip that sprite animation according to selected axis
+- 
+
+### Day # Adding Node state machine to Player animation
+
+- AnimatedSprite2D + AnimationPlayer + AnimationTree => https://www.youtube.com/watch?v=1DwT5Xe8n6Y
 
 ### Day # Add HUD
 
 ### Day # Add main menu and present different scenes
 
-### Settings menu
+### Day # Settings menu
 
-### Pause menu with option to quit, restart, go to settings
+### Day # Pause menu with option to quit, restart, go to settings
 
 ### Day # align camera and viewport - world boundaries 
 Block the option of player going outside of the map

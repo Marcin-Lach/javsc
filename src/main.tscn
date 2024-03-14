@@ -13,6 +13,7 @@ script = ExtResource("1_vl6yq")
 enemies_count = 20
 
 [node name="Player" type="RigidBody2D" parent="."]
+texture_filter = 1
 gravity_scale = 0.0
 max_contacts_reported = 1
 contact_monitor = true
