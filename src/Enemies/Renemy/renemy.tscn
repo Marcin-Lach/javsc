@@ -25,6 +25,7 @@ texture_filter = 1
 texture = ExtResource("3_sxvv6")
 
 [node name="SpawnTimer" type="Timer" parent="."]
+process_mode = 1
 wait_time = 0.2
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

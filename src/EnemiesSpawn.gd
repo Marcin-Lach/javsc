@@ -3,14 +3,18 @@ extends Node2D
 @export var enemies_count = 50
 var renemy_scene = preload("res://Enemies/Renemy/renemy.tscn")
 var yenemy_scene = preload("res://Enemies/Yenemy/yenemy.tscn")
+@onready var pause_label = $Camera2D/PauseLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pause_label.hide()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("pause_menu"):
+		pause_label.visible = !pause_label.visible
+		get_tree().paused = !get_tree().paused
 
 
 func _on_timer_timeout():

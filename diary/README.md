@@ -174,6 +174,7 @@ Topic: Plan next improvements
 > Lyrics: Karnivool - Umbra
 
 Topic: Handle player spawning at starting position
+[Daily vlog #12](https://www.youtube.com/watch?v=3JvC4osan00&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=13)
 
 - Define starting position
 - add Group for "enemies"
@@ -199,6 +200,7 @@ Topic: Handle player spawning at starting position
 > Lyrics: Jay-Z - Run This Town
 
 Topic: Make the game more fair
+[Daily vlog #13](https://www.youtube.com/watch?v=Uav-TBOZYkE&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=14)
 
 - spawn enemies few seconds after spawning player
 	- `Timer` class to execute action based on elapsed time
@@ -270,6 +272,7 @@ func _on_enemy_spawn_timer_timeout():
 > Lyrics: Rush - Animate
 
 Topic: Add animation for enemies
+[Daily vlog #14](https://www.youtube.com/watch?v=VNosEfK6oEQ&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=15)
 
 - enemy should not appear right away, there should be an indicator that an enemy will spawn at given position
 - add Sprite2d for spawn for renemy
@@ -315,6 +318,25 @@ func _on_spawn_timer_timeout():
 		sprite_2d.show()
 		collision_shape_2d.disabled = false
 ```
+
+## Day #15 - pause the game
+
+> 
+> Lyrics: 
+
+Topic: Add the pause feature
+[Daily vlog #15]()
+
+- add new Input Mapping `pause_menu` for escape and options on PS4 pad
+- add pause label
+- add script to Main node with stopping the game
+	- Input.is_action_just_pressed("pause_menu")
+	- set Inspector.Process:Mode to `Always`
+	- get_tree().paused = true to stop Main node and all children
+	- this does not stop Timers
+- set Timer Node's Inspector.Process:Mode to `Pausable` to make it stop ticking
+- other solution is stoping the time in game engine
+	- Engine.time_scale = 0.0
 
 
 ---

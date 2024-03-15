@@ -21,6 +21,7 @@ texture = ExtResource("1_dwxek")
 shape = SubResource("RectangleShape2D_focwp")
 
 [node name="SpawnTimer" type="Timer" parent="."]
+process_mode = 1
 wait_time = 0.2
 
 [node name="SpawnSprite" type="Sprite2D" parent="."]
