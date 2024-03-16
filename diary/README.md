@@ -321,11 +321,11 @@ func _on_spawn_timer_timeout():
 
 ## Day #15 - pause the game
 
-> 
-> Lyrics: 
+> Just Stop
+> Lyrics: Disturbed - Just Stop
 
 Topic: Add the pause feature
-[Daily vlog #15]()
+[Daily vlog #15](https://www.youtube.com/watch?v=efrZamATvHE&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=16)
 
 - add new Input Mapping `pause_menu` for escape and options on PS4 pad
 - add pause label
@@ -338,6 +338,21 @@ Topic: Add the pause feature
 - other solution is stoping the time in game engine
 	- Engine.time_scale = 0.0
 
+
+## Day #16 - add rule allowing the player to win the game
+
+> While I'm still alive
+> Lyrics: Karnivool - Deadman
+
+Topic: Add rule that allows player to win the game
+[Daily vlog #16]()
+
+- add label for Won the game banner
+- add lable for diapling time left
+- add time left Timer Node
+- attach time_left_time.time_left to time_left_label.text
+	- format time_left to MM:ss (12:34 - 12 minutes, 34 seconds) - `var formatted_time_left = "%02d:%02d" % [minutes, seconds]`
+- remove enemies when time elapsed
 
 ---
 

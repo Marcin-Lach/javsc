@@ -4,9 +4,12 @@ extends Node2D
 var renemy_scene = preload("res://Enemies/Renemy/renemy.tscn")
 var yenemy_scene = preload("res://Enemies/Yenemy/yenemy.tscn")
 @onready var pause_label = $Camera2D/PauseLabel
+@onready var time_left_timer = $TimeLeftTimer
+@onready var won_the_game_label = $Camera2D/WonTheGameLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	won_the_game_label.hide()
 	pause_label.hide()
 	pass
 
@@ -18,6 +21,7 @@ func _process(delta):
 
 
 func _on_timer_timeout():
+	time_left_timer.start()
 	var player_position = $Player.global_position
 	var safe_zone_radius = 65
 	
@@ -51,3 +55,10 @@ func _on_timer_timeout():
 		enemy.position.x = enemy_position_x
 		enemy.position.y = enemy_position_y
 		add_child(enemy)
+
+
+func _on_time_left_timer_timeout():
+	won_the_game_label.show()
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemies:
+		self.remove_child(enemy)

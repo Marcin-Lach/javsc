@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsdrfppncpd4h"]
+[gd_scene load_steps=7 format=3 uid="uid://dsdrfppncpd4h"]
 
 [ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_iupss"]
 [ext_resource type="Script" path="res://EnemiesSpawn.gd" id="1_vl6yq"]
 [ext_resource type="Texture2D" uid="uid://jrr7qxwty5og" path="res://Player/player-sprite.png" id="2_06xwx"]
 [ext_resource type="Script" path="res://FollowPlayer.gd" id="4_8ipmc"]
+[ext_resource type="Script" path="res://TimeLeftLabel.gd" id="5_6i7gd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8su84"]
 size = Vector2(16, 16)
@@ -41,11 +42,33 @@ offset_right = 53.0
 offset_bottom = -24.0
 text = "Game Paused"
 
+[node name="WonTheGameLabel" type="Label" parent="Camera2D"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -35.0
+offset_top = -57.0
+offset_right = 34.0
+offset_bottom = -31.0
+text = "WINNER!"
+
+[node name="TimeLeftLabel" type="Label" parent="Camera2D"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -21.0
+offset_top = -85.0
+offset_right = 20.0
+offset_bottom = -59.0
+text = "10:00"
+script = ExtResource("5_6i7gd")
+
 [node name="Timer" type="Timer" parent="."]
 process_mode = 1
 process_callback = 0
 one_shot = true
 autostart = true
 
+[node name="TimeLeftTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimeLeftTimer" to="." method="_on_time_left_timer_timeout"]
