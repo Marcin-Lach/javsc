@@ -354,6 +354,15 @@ Topic: Add rule that allows player to win the game
 	- format time_left to MM:ss (12:34 - 12 minutes, 34 seconds) - `var formatted_time_left = "%02d:%02d" % [minutes, seconds]`
 - remove enemies when time elapsed
 
+## Day #17 - use Tweeners to animate start game countdown - 3, 2, 1 - survive!
+
+> It's the final countdown
+> Lyrics: Europe - The Final Countdown
+
+- Tweener is used to change property of node/resource using bezier curves
+- [Godot docs - Tween](https://docs.godotengine.org/en/stable/classes/class_tween.html#class-tween)
+- [Godot Tweening Cheatsheet](https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.webp)
+
 ---
 
 ## Future
@@ -420,6 +429,10 @@ fix object's positions
 	- process - runs as often as possible
 	- physics_process - This separate process is run at a capped framerate which is set in the projects physics settings (Physics → Common → Physics Ticks per Second), at 60 FPS by default. However, there are some important caveats to this. For one, the execution is not guaranteed to be at a constant rate - if too many operations take place in a single physics step it will slow down
 
+### Day # - attacking enemies
+
+> Much better you than I
+Lyrics: Tool - Vicarious
 
 ### Day # - github actions that build project
 

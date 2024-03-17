@@ -6,12 +6,17 @@ var yenemy_scene = preload("res://Enemies/Yenemy/yenemy.tscn")
 @onready var pause_label = $Camera2D/PauseLabel
 @onready var time_left_timer = $TimeLeftTimer
 @onready var won_the_game_label = $Camera2D/WonTheGameLabel
+@onready var count_to_start_label = $Camera2D/CountToStartLabel
+@onready var count_to_start_timer = $CountToStartTimer
+@onready var survive_label = $Camera2D/SurviveLabel
+@onready var survive_timer = $SurviveTimer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	won_the_game_label.hide()
 	pause_label.hide()
-	pass
+	count_to_start_timer.start()
+	survive_label.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -20,8 +25,12 @@ func _process(delta):
 		get_tree().paused = !get_tree().paused
 
 
-func _on_timer_timeout():
+func _on_count_to_start_timer_timeout():
 	time_left_timer.start()
+	count_to_start_label.hide()
+	survive_timer.start()
+	survive_label.show()
+	
 	var player_position = $Player.global_position
 	var safe_zone_radius = 65
 	
@@ -62,3 +71,7 @@ func _on_time_left_timer_timeout():
 	var enemies = get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
 		self.remove_child(enemy)
+
+
+func _on_survive_timer_timeout():
+	survive_label.hide()
