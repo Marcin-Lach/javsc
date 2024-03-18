@@ -345,7 +345,7 @@ Topic: Add the pause feature
 > Lyrics: Karnivool - Deadman
 
 Topic: Add rule that allows player to win the game
-[Daily vlog #16]()
+[Daily vlog #16](https://www.youtube.com/watch?v=wulK59uQ47Y&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=17)
 
 - add label for Won the game banner
 - add lable for diapling time left
@@ -359,13 +359,45 @@ Topic: Add rule that allows player to win the game
 > It's the final countdown
 > Lyrics: Europe - The Final Countdown
 
+Topic: Countdown to start game animated with Tweeners
+[Daily vlog #17](https://youtube.com/watch?v=q2lgQ4KZAM8&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=18)
+
 - Tweener is used to change property of node/resource using bezier curves
 - [Godot docs - Tween](https://docs.godotengine.org/en/stable/classes/class_tween.html#class-tween)
 - [Godot Tweening Cheatsheet](https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.webp)
 
+
+## Day #18 - Main Menu Scene
+
+> Just begin
+> Lyrics: A Perfect Circle - Eat The Elephant
+
+Topic: Main Menu scene
+[Daily vlog #18]()
+
+- add new scene of type User Interface
+- quit option (https://docs.godotengine.org/en/stable/tutorials/inputs/handling_quit_requests.html#sending-your-own-quit-notification)
+	- `get_tree().quit` will force close the game
+	- use `get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)` to allow for handling saving, confirmation popup etc
+- start game button should load game scene 
+	- use `get_tree().change_scene("res://scene.tscn")` to change scene to another
+- adding new scene as a child of current scene (for Options screen in future)
+	- `get_tree().current_scene.add_child(scene_instance)`
+- control Main Menu by keyboard is already built-in when first button is defined
+	- in Menu scene, in _ready function, reference the start button and call `grab_focus()` method on it - `$StartButton.grab_focus()`
+- button -> inspector -> focus : Neighbours - set this to control which control should be focused next after pressing any of buttons that are available to be mapped
+- Project Settings -> Input Map -> Show built-in action, assign PS gamepad X button to `ui_accept` action
+
+
 ---
 
 ## Future
+
+### Day # - multiple game difficulties
+- passing parameters when loading a scene
+	- easy - survive 10 seconds
+	- medium - survive 30 seconds
+	- hard - survive 60 seconds
 
 ### Day # Animating Enemies using AnimatedSprite Node
 
