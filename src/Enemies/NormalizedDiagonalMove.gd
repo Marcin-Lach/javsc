@@ -5,7 +5,7 @@ extends RigidBody2D
 @onready var spawn_timer = $SpawnTimer
 @onready var spawn_sprite = $SpawnSprite
 @onready var collision_shape_2d = $CollisionShape2D
-@onready var sprite_2d = $Sprite2D
+@onready var sprite_2d = $AnimatedSprite2D
 
 var spawn_tick_count = 10
 

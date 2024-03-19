@@ -373,7 +373,7 @@ Topic: Countdown to start game animated with Tweeners
 > Lyrics: A Perfect Circle - Eat The Elephant
 
 Topic: Main Menu scene
-[Daily vlog #18]()
+[Daily vlog #18](https://www.youtube.com/watch?v=V8ExxHYbKSk&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=19)
 
 - add new scene of type User Interface
 - quit option (https://docs.godotengine.org/en/stable/tutorials/inputs/handling_quit_requests.html#sending-your-own-quit-notification)
@@ -388,6 +388,23 @@ Topic: Main Menu scene
 - button -> inspector -> focus : Neighbours - set this to control which control should be focused next after pressing any of buttons that are available to be mapped
 - Project Settings -> Input Map -> Show built-in action, assign PS gamepad X button to `ui_accept` action
 
+### Day #19 Animating Enemies using AnimatedSprite Node
+
+> 
+> Lyrics: 
+
+Topic: Using AnimatedSprite2D to create animations for enemies
+[Daily vlog #19]()
+
+https://docs.godotengine.org/en/stable/tutorials/2d/2d_sprite_animation.html
+https://www.youtube.com/watch?v=yZufjzzKtTA
+- create a spritesheet or multiple sprites for animating
+- Project -> Project Settings -> Rendering -> Textures -> Canvas Textures: Default Texture Filter - set to Nearest
+- Project -> Project Settings -> Display -> Window -> Size: Viewport Height and Width to accomodate for smaller pixel arts
+- Project -> Project Settings -> Display -> Window -> Stretch: Mode to canvas_items, to scale up everything that we have when we make the window bigger
+- Project -> Project Settings -> turn on Advanced Settings -> Display -> Window -> Size: set default window size to have the window stretched after starting debugging (1280 x 720)
+- Debug -> Visible Collision Shapes
+- SpriteFrames resource must be attached to AnimatedSprite node
 
 ---
 
@@ -399,17 +416,7 @@ Topic: Main Menu scene
 	- medium - survive 30 seconds
 	- hard - survive 60 seconds
 
-### Day # Animating Enemies using AnimatedSprite Node
 
-https://docs.godotengine.org/en/stable/tutorials/2d/2d_sprite_animation.html
-https://www.youtube.com/watch?v=yZufjzzKtTA
-- create a spritesheet for animating
-- Project -> Project Settings -> Rendering -> Textures -> Canvas Textures: Default Texture Filter - set to Nearest
-- Project -> Project Settings -> Display -> Window -> Size: Viewport Height and Width to accomodate for smaller pixel arts
-- Project -> Project Settings -> Display -> Window -> Stretch: Mode to canvas_items, to scale up everything that we have when we make the window bigger
-- Project -> Project Settings -> turn on Advanced Settings -> Display -> Window -> Size: set default window size to have the window stretched after starting debugging (1280 x 720)
-- Debug -> Visible Collision Shapes
-- SpriteFrames resource must be attached to AnimatedSprite node
 
 ### Day # Animating Player using Sprite2D with child node AnimationPlayer 
 
@@ -465,6 +472,10 @@ fix object's positions
 
 > Much better you than I
 Lyrics: Tool - Vicarious
+
+### Day # - collectables / achievements
+
+### Day # - handling player Profiles (separate collectables and achievements)
 
 ### Day # - github actions that build project
 

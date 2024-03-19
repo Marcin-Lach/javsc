@@ -1,11 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgg5pnivm85or"]
+[gd_scene load_steps=8 format=3 uid="uid://cgg5pnivm85or"]
 
 [ext_resource type="Script" path="res://Enemies/NormalizedDiagonalMove.gd" id="1_5uory"]
 [ext_resource type="Texture2D" uid="uid://p60rh5xrtjby" path="res://Enemies/Renemy/renemy-sprite.png" id="1_6pieb"]
 [ext_resource type="Texture2D" uid="uid://c8txqkxnyqlex" path="res://Enemies/Renemy/renemy-spawning.png" id="3_sxvv6"]
+[ext_resource type="Texture2D" uid="uid://cnbl1phrv3op2" path="res://Enemies/Renemy/renemy-sprite2.png" id="4_hmshc"]
+[ext_resource type="Texture2D" uid="uid://ckbycwv25twlt" path="res://Enemies/Renemy/renemy-sprite3.png" id="5_p62jb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gpg7w"]
 radius = 8.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w24nc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6pieb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hmshc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p62jb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hmshc")
+}],
+"loop": true,
+"name": &"living",
+"speed": 5.0
+}]
 
 [node name="Renemy" type="RigidBody2D" groups=["enemies"]]
 mass = 3.0
@@ -13,9 +35,6 @@ gravity_scale = 0.0
 linear_damp = 5.0
 script = ExtResource("1_5uory")
 speed = 30
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_6pieb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gpg7w")
@@ -27,5 +46,10 @@ texture = ExtResource("3_sxvv6")
 [node name="SpawnTimer" type="Timer" parent="."]
 process_mode = 1
 wait_time = 0.2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w24nc")
+animation = &"living"
+autoplay = "living"
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

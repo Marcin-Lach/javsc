@@ -1,21 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://1r2d3lwajqyp"]
+[gd_scene load_steps=8 format=3 uid="uid://1r2d3lwajqyp"]
 
 [ext_resource type="Script" path="res://Enemies/NormalizedDiagonalMove.gd" id="1_af3cv"]
 [ext_resource type="Texture2D" uid="uid://c3flckni7e1qd" path="res://Enemies/Yenemy/yenemy-sprite.png" id="1_dwxek"]
 [ext_resource type="Texture2D" uid="uid://b53dgikh114c7" path="res://Enemies/Yenemy/yenemy-spawning.png" id="3_vrqni"]
+[ext_resource type="Texture2D" uid="uid://c772b11gusfjr" path="res://Enemies/Yenemy/yenemy-sprite2.png" id="4_0sml8"]
+[ext_resource type="Texture2D" uid="uid://bo63tvg5fn4eq" path="res://Enemies/Yenemy/yenemy-sprite3.png" id="5_gnyin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_focwp"]
 size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u55qf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dwxek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0sml8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gnyin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0sml8")
+}],
+"loop": true,
+"name": &"living",
+"speed": 5.0
+}]
 
 [node name="Yenemy" type="RigidBody2D" groups=["enemies"]]
 mass = 6.0
 gravity_scale = 0.0
 linear_damp = 4.0
 script = ExtResource("1_af3cv")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("1_dwxek")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_focwp")
@@ -27,5 +45,10 @@ wait_time = 0.2
 [node name="SpawnSprite" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("3_vrqni")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u55qf")
+animation = &"living"
+autoplay = "living"
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
