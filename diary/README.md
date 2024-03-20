@@ -390,11 +390,11 @@ Topic: Main Menu scene
 
 ### Day #19 Animating Enemies using AnimatedSprite Node
 
-> 
-> Lyrics: 
+> Woh oh oh oh oh oh, yeah yeah
+> Lyrics: Greta Van Fleet - Black Smoke Rising
 
 Topic: Using AnimatedSprite2D to create animations for enemies
-[Daily vlog #19]()
+[Daily vlog #19](https://www.youtube.com/watch?v=7Zy9Wd6Plac&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=20)
 
 https://docs.godotengine.org/en/stable/tutorials/2d/2d_sprite_animation.html
 https://www.youtube.com/watch?v=yZufjzzKtTA
@@ -406,16 +406,39 @@ https://www.youtube.com/watch?v=yZufjzzKtTA
 - Debug -> Visible Collision Shapes
 - SpriteFrames resource must be attached to AnimatedSprite node
 
+### Day #20 Review Godot best practices
+
+> Be humble
+> Lyrics: Kendrick Lamar - HUMBLE.
+
+Topic: Review Godot best practices and note down what to fix in current game.
+[Daily vlog #20]()
+
+https://docs.godotengine.org/en/stable/tutorials/best_practices/index.html
+
+- scenes are extension to a script. You could do everything from withing scripts, without any scenes, but it is convinient to have them
+- Child nodes should not depend of any information to be available except what they contain internally
+- Parent nodes can act as mediator between children and coordinate their work
+- Singletons (Autoloads) can be used to store data that is needed for every scene (like player score, settings etc)
+	- for smaller projects, overriding the scene with another one while preserving the Main node could be enough; data would then be still available on the Main node
+- common structure for games if to have a Main node with World and GUI children
+
 ---
 
 ## Future
+
+### Day #21 - continue reviewing Godot best practices
+
+https://docs.godotengine.org/en/stable/tutorials/best_practices/scenes_versus_scripts.html
+
+### Day # - apply suggestions from Godot best practices (Day #20)
+
 
 ### Day # - multiple game difficulties
 - passing parameters when loading a scene
 	- easy - survive 10 seconds
 	- medium - survive 30 seconds
 	- hard - survive 60 seconds
-
 
 
 ### Day # Animating Player using Sprite2D with child node AnimationPlayer 
