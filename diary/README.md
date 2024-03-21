@@ -412,27 +412,65 @@ https://www.youtube.com/watch?v=yZufjzzKtTA
 > Lyrics: Kendrick Lamar - HUMBLE.
 
 Topic: Review Godot best practices and note down what to fix in current game.
-[Daily vlog #20]()
+[Daily vlog #20](https://www.youtube.com/watch?v=6HRtbNb_SnQ&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=21)
 
 https://docs.godotengine.org/en/stable/tutorials/best_practices/index.html
 
-- scenes are extension to a script. You could do everything from withing scripts, without any scenes, but it is convinient to have them
+- scenes are extension to a script. You could do everything from within scripts, without any scenes, but it is convinient to have them
 - Child nodes should not depend of any information to be available except what they contain internally
-- Parent nodes can act as mediator between children and coordinate their work
+- Parent nodes can act as mediator between children and coordinate their work (e.g. by calling child's methods, passing other children as parameters)
 - Singletons (Autoloads) can be used to store data that is needed for every scene (like player score, settings etc)
 	- for smaller projects, overriding the scene with another one while preserving the Main node could be enough; data would then be still available on the Main node
-- common structure for games if to have a Main node with World and GUI children
+- common structure for games if to have a Main node with World Node and GUI Node as children
+
+### Day #21 More learning
+
+> when I learn to fly high
+> Lyrics: Foo Fighters - Learn to Fly
+
+Topic: Learn some more about Godot
+[Daily vlog #21]()
+
+- [Every 2D node explained in 9 Minutes!](https://www.youtube.com/watch?v=22VYNOtrcgM)
+- [Every UI Node Explained in 12 Minutes](https://www.youtube.com/watch?v=sPfoZy-cW-E)
+
+#### Action points
+
+- check out Camera2D settings (Drag and smoothing) to fix jagged/laggy looks when player moves
+- main node should be the orchestrator of the game
+- each component should be self-contained, providing a way of setting it's dependencies through methods by an orchestator, and not accessing siblings in Scene Tree directly 
+	- enemies should not reference Player directly to get it's position
+	- enemies should have `target` property, and this should be set by coordinating node; then in script, enemies can use `target.global_position` to get position of the target and move towards it
 
 ---
 
 ## Future
 
-### Day #21 - continue reviewing Godot best practices
+### Day #2y - apply suggestions from Godot best practices (Day #20 - #2x)
 
-https://docs.godotengine.org/en/stable/tutorials/best_practices/scenes_versus_scripts.html
+### Day # - even more learning!
 
-### Day # - apply suggestions from Godot best practices (Day #20)
+Go through godot docs
+- https://docs.godotengine.org/en/stable/about/introduction.html
+- https://docs.godotengine.org/en/stable/getting_started/introduction/index.html
 
+- https://docs.godotengine.org/en/stable/tutorials/best_practices/index.html
+- https://docs.godotengine.org/en/stable/tutorials/scripting/index.html#core-features
+- https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/index.html
+- https://docs.godotengine.org/en/stable/tutorials/2d/index.html
+- https://docs.godotengine.org/en/stable/tutorials/physics/index.html
+- https://docs.godotengine.org/en/stable/tutorials/inputs/index.html
+- https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html
+- https://docs.godotengine.org/en/stable/tutorials/animation/index.html
+- https://docs.godotengine.org/en/stable/tutorials/audio/index.html
+- https://docs.godotengine.org/en/stable/tutorials/i18n/index.html
+- https://docs.godotengine.org/en/stable/tutorials/export/index.html
+
+### Day # - script styling
+
+https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html
+- grouping @export variables into `@export_group` and `@export_category`  
+- value managers (e.g. `@export_range`)
 
 ### Day # - multiple game difficulties
 - passing parameters when loading a scene
@@ -440,10 +478,9 @@ https://docs.godotengine.org/en/stable/tutorials/best_practices/scenes_versus_sc
 	- medium - survive 30 seconds
 	- hard - survive 60 seconds
 
-
 ### Day # Animating Player using Sprite2D with child node AnimationPlayer 
 
-https://docs.godotengine.org/en/stable/tutorials/2d/2d_sprite_animation.html
+https://docs.godotengine.org/en/stable/tutorials/2d/2d_sprite_animation.html#sprite-sheet-with-animationplayer
 https://www.youtube.com/watch?v=sVJEaYNOUNw
 https://www.youtube.com/watch?v=Vwj_hX9h4zo
 - create a spritesheet for animating
@@ -468,12 +505,12 @@ https://www.youtube.com/watch?v=Vwj_hX9h4zo
 - AnimatedSprite2D + AnimationPlayer + AnimationTree => https://www.youtube.com/watch?v=1DwT5Xe8n6Y
 
 ### Day # Add HUD
+- [Every UI Node Explained in 12 Minutes](https://www.youtube.com/watch?v=sPfoZy-cW-E)
 
-### Day # Add main menu and present different scenes
+### Day # Options menu
+- [Every UI Node Explained in 12 Minutes](https://www.youtube.com/watch?v=sPfoZy-cW-E)
 
-### Day # Settings menu
-
-### Day # Pause menu with option to quit, restart, go to settings
+### Day # In-game Pause menu with option to quit, restart, go to settings
 
 ### Day # align camera and viewport - world boundaries 
 Block the option of player going outside of the map
@@ -496,14 +533,46 @@ fix object's positions
 > Much better you than I
 Lyrics: Tool - Vicarious
 
+### Day # - adding audio
+
+### Day # - Path finding
+- add obstacles (StaticBody2D) to see how enemies try to get to player
+- using Joint2D to connect StaticBodies and create moving parts of map
+
+### Day # - Improved Path finding
+- look into using Navigation Region/Link/Obstacle 2D
+
+### Day # - using TileMap editor
+
+### Day # - CanvasModulate and Light2D nodes
+
 ### Day # - collectables / achievements
 
 ### Day # - handling player Profiles (separate collectables and achievements)
+
+### Day # - Project settings before publishing
+
+- Set Application Icon - Project Settings -> Application -> Config: Set Icon
+- Set Application Icon - Project Settings -> Application -> Config: Set Name + Localized name
+- Set Splashscreen - Project Settings -> Application -> Boot Splash
+- Set Main Scene - Project Settings -> Application -> Run: Main Scene
+- Set game to Fullscreen mode if it is meant to be a fullscreen game - Project Settings -> Display -> Window: Mode - Fullscreen
+- Set Mouse Cursor - Project Settings -> Display -> Mouse Cursor
+- Smooth the edge (Anti Aliasing) - Project Settings -> Rendering -> Anti Aliasing
 
 ### Day # - github actions that build project
 
 
 ### Day # - attach exe as Github Release
+
+### Day # - Guard enemies
+- enemies set out to "partol" a path (using Follow/Path2D)
+- when they spot Player (using Raycast2D/ShapeCast2D), they enter the chase mode
+
+### Day # shadders
+
+- BackBufferCopy node
+
 
 ## setting
 
