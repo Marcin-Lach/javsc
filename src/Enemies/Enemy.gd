@@ -1,14 +1,17 @@
 extends RigidBody2D
 
-@onready var player_node = $"/root/Main/Player"
 @export var speed = 10
 @onready var spawn_timer = $SpawnTimer
 @onready var spawn_sprite = $SpawnSprite
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var sprite_2d = $AnimatedSprite2D
 
+var target : Node2D
 var spawn_tick_count = 10
 
+func set_target(theTarget : Node2D):
+	target = theTarget
+	
 func _ready():
 	sprite_2d.hide()
 	collision_shape_2d.disabled = true
@@ -17,7 +20,10 @@ func _ready():
 	spawn_sprite.show()
 
 func _physics_process(delta):
-	var direction_vector = position.direction_to(player_node.position)
+	if target == null:
+		return
+
+	var direction_vector = position.direction_to(target.position)
 	linear_velocity = direction_vector * speed
 
 func _on_spawn_timer_timeout():

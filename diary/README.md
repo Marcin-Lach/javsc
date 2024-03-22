@@ -429,7 +429,7 @@ https://docs.godotengine.org/en/stable/tutorials/best_practices/index.html
 > Lyrics: Foo Fighters - Learn to Fly
 
 Topic: Learn some more about Godot
-[Daily vlog #21]()
+[Daily vlog #21](https://www.youtube.com/watch?v=yvDmgI2oiCI&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=22)
 
 - [Every 2D node explained in 9 Minutes!](https://www.youtube.com/watch?v=22VYNOtrcgM)
 - [Every UI Node Explained in 12 Minutes](https://www.youtube.com/watch?v=sPfoZy-cW-E)
@@ -441,6 +441,17 @@ Topic: Learn some more about Godot
 - each component should be self-contained, providing a way of setting it's dependencies through methods by an orchestator, and not accessing siblings in Scene Tree directly 
 	- enemies should not reference Player directly to get it's position
 	- enemies should have `target` property, and this should be set by coordinating node; then in script, enemies can use `target.global_position` to get position of the target and move towards it
+
+### Day #22 Decouple Enemies and Player
+
+> fix me, please
+> Lyrics: Rise Against - Fix Me
+
+Topic: Fix the scripts
+[Daily vlog #22]()
+
+- decouple enemies from player
+- fix script names, to match nodes they are attached to
 
 ---
 

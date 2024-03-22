@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dsdrfppncpd4h"]
 
 [ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_iupss"]
-[ext_resource type="Script" path="res://EnemiesSpawn.gd" id="1_vl6yq"]
+[ext_resource type="Script" path="res://Main.gd" id="1_m6dua"]
 [ext_resource type="Texture2D" uid="uid://jrr7qxwty5og" path="res://Player/player-sprite.png" id="2_06xwx"]
 [ext_resource type="Script" path="res://FollowPlayer.gd" id="4_8ipmc"]
 [ext_resource type="Script" path="res://TimeLeftLabel.gd" id="5_6i7gd"]
@@ -12,7 +12,7 @@ size = Vector2(16, 16)
 
 [node name="Main" type="Node2D"]
 process_mode = 3
-script = ExtResource("1_vl6yq")
+script = ExtResource("1_m6dua")
 enemies_count = 20
 
 [node name="Player" type="RigidBody2D" parent="."]

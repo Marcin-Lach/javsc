@@ -61,6 +61,7 @@ func _on_count_to_start_timer_timeout():
 		else:
 			enemy = yenemy_scene.instantiate()
 
+		enemy.set_target($Player)
 		enemy.position.x = enemy_position_x
 		enemy.position.y = enemy_position_y
 		add_child(enemy)
