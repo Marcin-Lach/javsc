@@ -17,6 +17,7 @@ func _ready():
 	pause_label.hide()
 	count_to_start_timer.start()
 	survive_label.hide()
+	$Camera2D.set_target($Player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

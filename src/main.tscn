@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsdrfppncpd4h"]
+[gd_scene load_steps=8 format=3 uid="uid://bmndo5gsewlhg"]
 
 [ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_iupss"]
 [ext_resource type="Script" path="res://Main.gd" id="1_m6dua"]
 [ext_resource type="Texture2D" uid="uid://jrr7qxwty5og" path="res://Player/player-sprite.png" id="2_06xwx"]
-[ext_resource type="Script" path="res://FollowPlayer.gd" id="4_8ipmc"]
+[ext_resource type="Script" path="res://Camera.gd" id="4_tx8gv"]
 [ext_resource type="Script" path="res://TimeLeftLabel.gd" id="5_6i7gd"]
 [ext_resource type="Script" path="res://CountToStart.gd" id="6_hkhxr"]
 
@@ -33,7 +33,8 @@ texture = ExtResource("2_06xwx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
-script = ExtResource("4_8ipmc")
+position_smoothing_enabled = true
+script = ExtResource("4_tx8gv")
 
 [node name="PauseLabel" type="Label" parent="Camera2D"]
 self_modulate = Color(0, 0, 0, 1)

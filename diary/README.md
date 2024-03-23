@@ -448,9 +448,21 @@ Topic: Learn some more about Godot
 > Lyrics: Rise Against - Fix Me
 
 Topic: Fix the scripts
-[Daily vlog #22]()
+[Daily vlog #22](https://www.youtube.com/watch?v=vwaVWSXgQVQ&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=23)
 
 - decouple enemies from player
+- fix script names, to match nodes they are attached to
+
+
+### Day #23 Decouple Camera and Player
+
+> piece by piece
+> Lyrics: Strata - Piece by Piece
+
+Topic: Fix the scripts pt. 2
+[Daily vlog #23]()
+
+- decouple camera from player
 - fix script names, to match nodes they are attached to
 
 ---
