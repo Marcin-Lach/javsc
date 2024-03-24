@@ -34,6 +34,7 @@ mass = 6.0
 gravity_scale = 0.0
 linear_damp = 4.0
 script = ExtResource("1_b760a")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_focwp")

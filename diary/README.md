@@ -456,14 +456,33 @@ Topic: Fix the scripts
 
 ### Day #23 Decouple Camera and Player
 
-> piece by piece
+> piece by piece.
 > Lyrics: Strata - Piece by Piece
 
 Topic: Fix the scripts pt. 2
-[Daily vlog #23]()
+[Daily vlog #23](https://www.youtube.com/watch?v=BE2x4LJFt3o&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=24)
 
 - decouple camera from player
 - fix script names, to match nodes they are attached to
+
+### Day #24 Move nodes inside viewport
+
+> I'd like to change my point of view.
+> Lyrics: Fools Garden - Lemon Tree
+
+Topic: Move nodes inside the viewport to lay ground for HUD rework
+[Daily vlog #24]()
+
+https://docs.godotengine.org/en/stable/getting_started/first_2d_game/index.html
+
+- in 2D pane, select enemy scenes, select Main node and press Group Selected Node - this prevents child nodes from being selectable and draging them outside of parent's position
+- The CanvasLayer node lets us draw our UI elements on a layer above the rest of the game, so that the information it displays isn't covered up by any game elements like the player or mobs.
+	- It is rendered in the viewport, so it is good to align the camera and player so that they inside the viewport as well
+
+https://docs.godotengine.org/en/stable/about/introduction.html
+
+- add info about licences
+
 
 ---
 
@@ -471,11 +490,22 @@ Topic: Fix the scripts pt. 2
 
 ### Day #2y - apply suggestions from Godot best practices (Day #20 - #2x)
 
+### Day # HUD rework
+- "HUD" stands for "heads-up display"
+- `await get_tree().create_timer(1.0).timeout` - this line stops script's execution for 1 second, can be useful for handling HUD animations without additional Timer nodes
+
+### Day # Improve enemies spawning script
+- use `get_viewport_rect().size` to calculate position for spawning enemies
+- `queue_free()` to enqueue object to be removed from scene_tree and memory. If object should stay in memory, `remove_child()` might be used to just remove Node from scene_tree
+	- `get_tree().call_group("mobs", "queue_free")` - to execute "queue_free" method on each node in "mobs" group
+- `position.clamp(Vector2.ZERO, screen_size)` to limit range in which player may walk
+
 ### Day # - even more learning!
 
 Go through godot docs
-- https://docs.godotengine.org/en/stable/about/introduction.html
+- https://docs.godotengine.org/en/stable/about/faq.html#how-should-assets-be-created-to-handle-multiple-resolutions-and-aspect-ratios
 - https://docs.godotengine.org/en/stable/getting_started/introduction/index.html
+
 
 - https://docs.godotengine.org/en/stable/tutorials/best_practices/index.html
 - https://docs.godotengine.org/en/stable/tutorials/scripting/index.html#core-features
@@ -494,6 +524,7 @@ Go through godot docs
 https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html
 - grouping @export variables into `@export_group` and `@export_category`  
 - value managers (e.g. `@export_range`)
+- Godot naming conventions for GDScript - Classes (nodes) use PascalCase, variables and functions use snake_case, and constants use ALL_CAPS (See GDScript style guide)
 
 ### Day # - multiple game difficulties
 - passing parameters when loading a scene
@@ -595,6 +626,10 @@ Lyrics: Tool - Vicarious
 ### Day # shadders
 
 - BackBufferCopy node
+
+### Day # show licences
+
+https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclusion
 
 
 ## setting
