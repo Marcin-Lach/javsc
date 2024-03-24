@@ -1,7 +1,5 @@
 extends Camera2D
 
-@onready var player_node = $"/root/Main/Player"
-
 var target : Node2D
 
 func set_target(theTarget : Node2D):

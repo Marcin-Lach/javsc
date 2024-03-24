@@ -35,6 +35,7 @@ gravity_scale = 0.0
 linear_damp = 5.0
 script = ExtResource("1_ffdp6")
 speed = 30
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_gpg7w")

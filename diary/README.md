@@ -460,10 +460,27 @@ Topic: Fix the scripts
 > Lyrics: Strata - Piece by Piece
 
 Topic: Fix the scripts pt. 2
-[Daily vlog #23]()
+[Daily vlog #23](https://www.youtube.com/watch?v=BE2x4LJFt3o&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=24)
 
 - decouple camera from player
 - fix script names, to match nodes they are attached to
+
+### Day #24 
+
+https://docs.godotengine.org/en/stable/getting_started/first_2d_game/index.html
+
+- in 2D pane, select enemy scenes, select Main node and press Group Selected Node - this prevents child nodes from being selectable and draging them outside of parent's position
+- Godot naming conventions for GDScript - Classes (nodes) use PascalCase, variables and functions use snake_case, and constants use ALL_CAPS (See GDScript style guide)
+- use `get_viewport_rect().size` to calculate position for spawning enemies
+- `position.clamp(Vector2.ZERO, screen_size)` to limit range in which player may walk
+- `queue_free()` to enqueue object to be removed from scene_tree and memory. If object should stay in memory, `remove_child()` might be used to just remove Node from scene_tree
+	- `get_tree().call_group("mobs", "queue_free")` - to execute "queue_free" method on each node in "mobs" group
+- "HUD" stands for "heads-up display"
+- The CanvasLayer node lets us draw our UI elements on a layer above the rest of the game, so that the information it displays isn't covered up by any game elements like the player or mobs.
+	- It is rendered in the viewport, so it is good to align the camera and player so that they inside the viewport as well
+- `await get_tree().create_timer(1.0).timeout` - this line stops script's execution for 1 second, can be useful for handling HUD animations without additional Timer nodes
+
+- https://docs.godotengine.org/en/stable/about/introduction.html
 
 ---
 
@@ -474,7 +491,6 @@ Topic: Fix the scripts pt. 2
 ### Day # - even more learning!
 
 Go through godot docs
-- https://docs.godotengine.org/en/stable/about/introduction.html
 - https://docs.godotengine.org/en/stable/getting_started/introduction/index.html
 
 - https://docs.godotengine.org/en/stable/tutorials/best_practices/index.html
@@ -595,6 +611,10 @@ Lyrics: Tool - Vicarious
 ### Day # shadders
 
 - BackBufferCopy node
+
+### Day # show licences
+
+https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclusion
 
 
 ## setting

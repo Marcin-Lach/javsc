@@ -3,12 +3,12 @@ extends Node2D
 @export var enemies_count = 50
 var renemy_scene = preload("res://Enemies/Renemy/renemy.tscn")
 var yenemy_scene = preload("res://Enemies/Yenemy/yenemy.tscn")
-@onready var pause_label = $Camera2D/PauseLabel
+@onready var pause_label = $CanvasLayer/PauseLabel
 @onready var time_left_timer = $TimeLeftTimer
-@onready var won_the_game_label = $Camera2D/WonTheGameLabel
-@onready var count_to_start_label = $Camera2D/CountToStartLabel
+@onready var won_the_game_label = $CanvasLayer/WonTheGameLabel
+@onready var count_to_start_label = $CanvasLayer/CountToStartLabel
 @onready var count_to_start_timer = $CountToStartTimer
-@onready var survive_label = $Camera2D/SurviveLabel
+@onready var survive_label = $CanvasLayer/SurviveLabel
 @onready var survive_timer = $SurviveTimer
 
 # Called when the node enters the scene tree for the first time.

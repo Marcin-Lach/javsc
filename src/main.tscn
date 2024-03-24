@@ -12,17 +12,20 @@ size = Vector2(16, 16)
 
 [node name="Main" type="Node2D"]
 process_mode = 3
+position = Vector2(292, 161)
 script = ExtResource("1_m6dua")
 enemies_count = 20
 
 [node name="Player" type="RigidBody2D" parent="."]
 texture_filter = 1
+position = Vector2(-1, 0)
 gravity_scale = 0.0
 max_contacts_reported = 1
 contact_monitor = true
 lock_rotation = true
 linear_damp = 15.0
 script = ExtResource("1_iupss")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_8su84")
@@ -32,56 +35,13 @@ debug_color = Color(0.117647, 0.615686, 0.576471, 0.407843)
 texture = ExtResource("2_06xwx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
+position = Vector2(-1, -2)
+zoom = Vector2(2, 2)
 script = ExtResource("4_tx8gv")
-
-[node name="PauseLabel" type="Label" parent="Camera2D"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = -53.0
-offset_top = -50.0
-offset_right = 53.0
-offset_bottom = -24.0
-text = "Game Paused"
-
-[node name="WonTheGameLabel" type="Label" parent="Camera2D"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = -35.0
-offset_top = -57.0
-offset_right = 34.0
-offset_bottom = -31.0
-text = "WINNER!"
-
-[node name="TimeLeftLabel" type="Label" parent="Camera2D"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = -21.0
-offset_top = -85.0
-offset_right = 20.0
-offset_bottom = -59.0
-text = "10:00"
-script = ExtResource("5_6i7gd")
-
-[node name="CountToStartLabel" type="Label" parent="Camera2D"]
-process_mode = 1
-self_modulate = Color(0, 0, 0, 1)
-offset_left = -6.0
-offset_top = -53.0
-offset_right = 5.0
-offset_bottom = -27.0
-text = "3"
-script = ExtResource("6_hkhxr")
-
-[node name="SurviveLabel" type="Label" parent="Camera2D"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = -36.0
-offset_top = -53.0
-offset_right = 34.0
-offset_bottom = -27.0
-text = "SURVIVE!"
 
 [node name="TimeLeftTimer" type="Timer" parent="."]
 process_mode = 1
-wait_time = 10.0
+wait_time = 100.0
 one_shot = true
 
 [node name="CountToStartTimer" type="Timer" parent="."]
@@ -92,6 +52,60 @@ one_shot = true
 [node name="SurviveTimer" type="Timer" parent="."]
 process_mode = 1
 one_shot = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseLabel" type="Label" parent="CanvasLayer"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 225.0
+offset_top = 67.0
+offset_right = 331.0
+offset_bottom = 93.0
+size_flags_vertical = 0
+text = "Game Paused"
+metadata/_edit_use_anchors_ = true
+
+[node name="WonTheGameLabel" type="Label" parent="CanvasLayer"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 243.0
+offset_top = 68.0
+offset_right = 312.0
+offset_bottom = 94.0
+size_flags_vertical = 0
+text = "WINNER!"
+metadata/_edit_use_anchors_ = true
+
+[node name="TimeLeftLabel" type="Label" parent="CanvasLayer"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 263.0
+offset_top = 10.0
+offset_right = 304.0
+offset_bottom = 36.0
+size_flags_vertical = 0
+text = "10:00"
+script = ExtResource("5_6i7gd")
+metadata/_edit_use_anchors_ = true
+
+[node name="CountToStartLabel" type="Label" parent="CanvasLayer"]
+process_mode = 1
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 285.0
+offset_top = 69.0
+offset_right = 296.0
+offset_bottom = 95.0
+size_flags_vertical = 0
+text = "3"
+script = ExtResource("6_hkhxr")
+metadata/_edit_use_anchors_ = true
+
+[node name="SurviveLabel" type="Label" parent="CanvasLayer"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 248.0
+offset_top = 67.0
+offset_right = 318.0
+offset_bottom = 93.0
+text = "SURVIVE!"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
 [connection signal="timeout" from="TimeLeftTimer" to="." method="_on_time_left_timer_timeout"]
