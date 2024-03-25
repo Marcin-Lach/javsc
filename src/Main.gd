@@ -3,34 +3,31 @@ extends Node2D
 @export var enemies_count = 50
 var renemy_scene = preload("res://Enemies/Renemy/renemy.tscn")
 var yenemy_scene = preload("res://Enemies/Yenemy/yenemy.tscn")
-@onready var pause_label = $CanvasLayer/PauseLabel
-@onready var time_left_timer = $TimeLeftTimer
-@onready var won_the_game_label = $CanvasLayer/WonTheGameLabel
-@onready var count_to_start_label = $CanvasLayer/CountToStartLabel
-@onready var count_to_start_timer = $CountToStartTimer
-@onready var survive_label = $CanvasLayer/SurviveLabel
-@onready var survive_timer = $SurviveTimer
+@onready var time_left_timer = $TimeLeftTimer as Timer
+@onready var hud = $Hud as Hud
+
+var countdown_before_start_seconds : int = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	won_the_game_label.hide()
-	pause_label.hide()
-	count_to_start_timer.start()
-	survive_label.hide()
 	$Camera2D.set_target($Player)
+	await hud.countdown_to_start(countdown_before_start_seconds)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var time_left = time_left_timer.time_left
+	hud.set_time_left(time_left)
+
 	if Input.is_action_just_pressed("pause_menu"):
-		pause_label.visible = !pause_label.visible
 		get_tree().paused = !get_tree().paused
+		if get_tree().paused:
+			await hud.show_message("Game paused")
+		else:
+			hud.hide_message()
 
-
-func _on_count_to_start_timer_timeout():
-	time_left_timer.start()
-	count_to_start_label.hide()
-	survive_timer.start()
-	survive_label.show()
+func _on_hud_countdown_completed():
+	time_left_timer.start()	
+	hud.show_message("SURVIVE!", 2, Vector2(2.0, 2.0))
 	
 	var player_position = $Player.global_position
 	var safe_zone_radius = 65
@@ -69,11 +66,5 @@ func _on_count_to_start_timer_timeout():
 
 
 func _on_time_left_timer_timeout():
-	won_the_game_label.show()
-	var enemies = get_tree().get_nodes_in_group("enemies")
-	for enemy in enemies:
-		self.remove_child(enemy)
-
-
-func _on_survive_timer_timeout():
-	survive_label.hide()
+	await hud.show_message("WINNER!", 0, Vector2(2.0, 2.0))
+	get_tree().call_group("enemies", "queue_free")

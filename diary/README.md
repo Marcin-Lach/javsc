@@ -471,7 +471,7 @@ Topic: Fix the scripts pt. 2
 > Lyrics: Fools Garden - Lemon Tree
 
 Topic: Move nodes inside the viewport to lay ground for HUD rework
-[Daily vlog #24]()
+[Daily vlog #24](https://www.youtube.com/watch?v=E5XNlwRbo3Q&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=25)
 
 https://docs.godotengine.org/en/stable/getting_started/first_2d_game/index.html
 
@@ -483,6 +483,16 @@ https://docs.godotengine.org/en/stable/about/introduction.html
 
 - add info about licences
 
+### Day #25 HUD rework
+
+Topic: Decouple the HUD from Main Node by defining API and signals for HUD
+[Daily vlog #25]()
+
+- "HUD" stands for "heads-up display"
+- `await get_tree().create_timer(1.0).timeout` - this line stops script's execution for 1 second, can be useful for handling HUD animations without additional Timer nodes
+	- countdown script has to be fixed to accomodate for pausing the game
+- `queue_free()` to enqueue object to be removed from scene_tree and memory. If object should stay in memory, `remove_child()` might be used to just remove Node from scene_tree
+	- `get_tree().call_group("enemies", "queue_free")` - to execute "queue_free" method on each node in "enemies" group
 
 ---
 
@@ -490,14 +500,16 @@ https://docs.godotengine.org/en/stable/about/introduction.html
 
 ### Day #2y - apply suggestions from Godot best practices (Day #20 - #2x)
 
-### Day # HUD rework
-- "HUD" stands for "heads-up display"
-- `await get_tree().create_timer(1.0).timeout` - this line stops script's execution for 1 second, can be useful for handling HUD animations without additional Timer nodes
+### Day # Fix pausing the game and HUD scaling
+- the countdown is not being paused (even though player is)
+- pausing game overrides "SURVIVE!" and "Winner!" text as it uses the same contol to be displayed
+- scaling labels in HUD messes up the centering (showing message with scaling set to more than Vector2(1.0, 1.0))
+	- scaling labels is shitty, because anchor of labels are top left corner
+	- put label inside Node2D and animate the parent (https://www.reddit.com/r/godot/comments/134yg1j/godot4_centering_scaled_label_outside_container/)
+	- Label.pivot_offset could work
 
 ### Day # Improve enemies spawning script
 - use `get_viewport_rect().size` to calculate position for spawning enemies
-- `queue_free()` to enqueue object to be removed from scene_tree and memory. If object should stay in memory, `remove_child()` might be used to just remove Node from scene_tree
-	- `get_tree().call_group("mobs", "queue_free")` - to execute "queue_free" method on each node in "mobs" group
 - `position.clamp(Vector2.ZERO, screen_size)` to limit range in which player may walk
 
 ### Day # - even more learning!

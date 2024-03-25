@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmndo5gsewlhg"]
+[gd_scene load_steps=7 format=3 uid="uid://bmndo5gsewlhg"]
 
-[ext_resource type="Script" path="res://Player/PlayerMovement.gd" id="1_iupss"]
 [ext_resource type="Script" path="res://Main.gd" id="1_m6dua"]
 [ext_resource type="Texture2D" uid="uid://jrr7qxwty5og" path="res://Player/player-sprite.png" id="2_06xwx"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="2_ppx32"]
 [ext_resource type="Script" path="res://Camera.gd" id="4_tx8gv"]
-[ext_resource type="Script" path="res://TimeLeftLabel.gd" id="5_6i7gd"]
-[ext_resource type="Script" path="res://CountToStart.gd" id="6_hkhxr"]
+[ext_resource type="PackedScene" uid="uid://b0nltx1b6wv78" path="res://Hud/hud.tscn" id="5_vvory"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8su84"]
 size = Vector2(16, 16)
@@ -15,14 +14,18 @@ process_mode = 3
 script = ExtResource("1_m6dua")
 enemies_count = 20
 
+[node name="Hud" parent="." instance=ExtResource("5_vvory")]
+
 [node name="Player" type="RigidBody2D" parent="."]
 texture_filter = 1
+position = Vector2(288, 163)
 gravity_scale = 0.0
 max_contacts_reported = 1
 contact_monitor = true
 lock_rotation = true
 linear_damp = 15.0
-script = ExtResource("1_iupss")
+script = ExtResource("2_ppx32")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_8su84")
@@ -32,80 +35,15 @@ debug_color = Color(0.117647, 0.615686, 0.576471, 0.407843)
 texture = ExtResource("2_06xwx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+position = Vector2(288, 162)
 position_smoothing_enabled = true
 script = ExtResource("4_tx8gv")
 
 [node name="TimeLeftTimer" type="Timer" parent="."]
 process_mode = 1
-wait_time = 10.0
+wait_time = 20.0
 one_shot = true
 
-[node name="CountToStartTimer" type="Timer" parent="."]
-process_mode = 1
-wait_time = 3.0
-one_shot = true
-
-[node name="SurviveTimer" type="Timer" parent="."]
-process_mode = 1
-one_shot = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseLabel" type="Label" parent="CanvasLayer"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = 242.0
-offset_top = 53.0
-offset_right = 348.0
-offset_bottom = 79.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Game Paused"
-
-[node name="WonTheGameLabel" type="Label" parent="CanvasLayer"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = 260.0
-offset_top = 46.0
-offset_right = 329.0
-offset_bottom = 72.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "WINNER!"
-
-[node name="TimeLeftLabel" type="Label" parent="CanvasLayer"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = 274.0
-offset_top = 18.0
-offset_right = 315.0
-offset_bottom = 44.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "10:00"
-script = ExtResource("5_6i7gd")
-
-[node name="CountToStartLabel" type="Label" parent="CanvasLayer"]
-process_mode = 1
-self_modulate = Color(0, 0, 0, 1)
-offset_left = 289.0
-offset_top = 50.0
-offset_right = 300.0
-offset_bottom = 76.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "3"
-script = ExtResource("6_hkhxr")
-
-[node name="SurviveLabel" type="Label" parent="CanvasLayer"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = 259.0
-offset_top = 50.0
-offset_right = 329.0
-offset_bottom = 76.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "SURVIVE!"
-
+[connection signal="countdown_completed" from="Hud" to="." method="_on_hud_countdown_completed"]
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
 [connection signal="timeout" from="TimeLeftTimer" to="." method="_on_time_left_timer_timeout"]
-[connection signal="timeout" from="CountToStartTimer" to="." method="_on_count_to_start_timer_timeout"]
-[connection signal="timeout" from="SurviveTimer" to="." method="_on_survive_timer_timeout"]
