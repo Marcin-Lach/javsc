@@ -486,7 +486,7 @@ https://docs.godotengine.org/en/stable/about/introduction.html
 ### Day #25 HUD rework
 
 Topic: Decouple the HUD from Main Node by defining API and signals for HUD
-[Daily vlog #25]()
+[Daily vlog #25 - last one](https://www.youtube.com/watch?v=qz2srAWJXIw&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3&index=26)
 
 - "HUD" stands for "heads-up display"
 - `await get_tree().create_timer(1.0).timeout` - this line stops script's execution for 1 second, can be useful for handling HUD animations without additional Timer nodes
@@ -494,14 +494,20 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 - `queue_free()` to enqueue object to be removed from scene_tree and memory. If object should stay in memory, `remove_child()` might be used to just remove Node from scene_tree
 	- `get_tree().call_group("enemies", "queue_free")` - to execute "queue_free" method on each node in "enemies" group
 
+### Day #26 Fix pausing the game
+
+- creating Timer with second parameter as `false` makes the Timer respect SceneTree pause
+	- `get_tree().create_timer(1.0, false).timeout`
+- creating Tween with setting Pause Mode to TWEEN_PAUSE_STOP makes the Tween respect SceneTree pause
+	- `create_tween().set_pause_mode(Tween.TWEEN_PAUSE_STOP)`
+
 ---
 
 ## Future
 
 ### Day #2y - apply suggestions from Godot best practices (Day #20 - #2x)
 
-### Day # Fix pausing the game and HUD scaling
-- the countdown is not being paused (even though player is)
+### Day # Fix HUD scaling and labels overriding eachother
 - pausing game overrides "SURVIVE!" and "Winner!" text as it uses the same contol to be displayed
 - scaling labels in HUD messes up the centering (showing message with scaling set to more than Vector2(1.0, 1.0))
 	- scaling labels is shitty, because anchor of labels are top left corner

@@ -24,13 +24,15 @@ func set_time_left(time_left : float):
 
 func countdown_to_start(countdown_seconds: int):
 	countdown_label.show()
-	var tween = create_tween().set_loops(countdown_seconds)
+	var tween = (create_tween()
+		.set_pause_mode(Tween.TWEEN_PAUSE_STOP)
+		.set_loops(countdown_seconds))
 	tween.tween_property(countdown_label, "scale", Vector2(2, 2), 0.5)
 	tween.tween_property(countdown_label, "scale", Vector2(1, 1), 0.5)
 	for second in countdown_seconds:
 		print(str(second))
 		countdown_label.text = str(countdown_seconds-second)
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.0, false).timeout
 	countdown_label.hide()
 	time_left_label.show() 
 	countdown_completed.emit()
@@ -41,7 +43,7 @@ func show_message(message: String, hide_after_seconds: int = 0, scaling : Vector
 	message_label.show()
 	
 	if hide_after_seconds > 0:
-		await get_tree().create_timer(hide_after_seconds).timeout
+		await get_tree().create_timer(hide_after_seconds, false).timeout
 		message_label.hide()
 		
 	message_label.scale = Vector2(1.0, 1.0)
