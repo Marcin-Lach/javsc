@@ -4,14 +4,13 @@ class_name Hud
 @onready var countdown_label = $CountdownNodeLabel
 @onready var message_label = $MessageNodeLabel
 @onready var time_left_label = $TimeLeftNodeLabel
+@onready var pause_label = $PauseLabel
 
 signal countdown_completed
 
-var is_paused = false as bool
-var message_label_text_before_pause = "" as String
-
 func _ready():
 	message_label.hide()
+	pause_label.hide()
 
 func set_time_left(time_left : float):
 	var minutes = time_left / 60
@@ -36,6 +35,9 @@ func countdown_to_start(countdown_seconds: int):
 	countdown_label.hide()
 	time_left_label.show() 
 	countdown_completed.emit()
+
+func toggle_pause():
+	pause_label.visible = !pause_label.visible
 
 func show_message(message: String, hide_after_seconds: int = 0, scaling : Vector2 = Vector2(1.0, 1.0)):
 	message_label.text = message

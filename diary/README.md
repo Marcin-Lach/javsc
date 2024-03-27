@@ -501,6 +501,10 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 - creating Tween with setting Pause Mode to TWEEN_PAUSE_STOP makes the Tween respect SceneTree pause
 	- `create_tween().set_pause_mode(Tween.TWEEN_PAUSE_STOP)`
 
+### Day #27 Fix label overriding when pausing the game
+
+- add new label that is used only for showing Game Paused message
+
 ---
 
 ## Future
@@ -508,7 +512,6 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 ### Day #2y - apply suggestions from Godot best practices (Day #20 - #2x)
 
 ### Day # Fix HUD scaling and labels overriding eachother
-- pausing game overrides "SURVIVE!" and "Winner!" text as it uses the same contol to be displayed
 - scaling labels in HUD messes up the centering (showing message with scaling set to more than Vector2(1.0, 1.0))
 	- scaling labels is shitty, because anchor of labels are top left corner
 	- put label inside Node2D and animate the parent (https://www.reddit.com/r/godot/comments/134yg1j/godot4_centering_scaled_label_outside_container/)

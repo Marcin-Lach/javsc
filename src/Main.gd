@@ -20,10 +20,7 @@ func _process(delta):
 
 	if Input.is_action_just_pressed("pause_menu"):
 		get_tree().paused = !get_tree().paused
-		if get_tree().paused:
-			await hud.show_message("Game paused")
-		else:
-			hud.hide_message()
+		hud.toggle_pause()
 
 func _on_hud_countdown_completed():
 	time_left_timer.start()	
