@@ -12,7 +12,7 @@ size = Vector2(16, 16)
 [node name="Main" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_m6dua")
-enemies_count = 20
+enemies_count = 100
 
 [node name="Hud" parent="." instance=ExtResource("5_vvory")]
 

@@ -25,29 +25,25 @@ func _process(delta):
 func _on_hud_countdown_completed():
 	time_left_timer.start()	
 	hud.show_message("SURVIVE!", 2, Vector2(2.0, 2.0))
+	spawn_enemies()
 	
+func spawn_enemies():
 	var player_position = $Player.global_position
-	var safe_zone_radius = 65
+	var half_viewport_size = get_viewport_rect().size/2
+	var safe_zone = 55
+	
+	var player_safe_zone = Rect2(player_position - Vector2(safe_zone/2, safe_zone/2), Vector2(safe_zone, safe_zone))
+	print(str("player safe zone: ", player_safe_zone, player_safe_zone.end))
+	
+	var spawn_boundaries = Rect2(Vector2(player_position.x - half_viewport_size.x, player_position.y - half_viewport_size.y), get_viewport_rect().size)
+	print(str("spawn boundaries: ", spawn_boundaries))
 	
 	for i in enemies_count:
-		var quadrant = randi_range(0 ,3)
-		
-		var enemy_position_x = randi_range(-136, 136)
-		var enemy_position_y = randi_range(-73, 73)
-		match quadrant:
-			0:
-				enemy_position_x = randi_range(player_position.x - 136, player_position.x - 136 + safe_zone_radius)
-				enemy_position_y = randi_range(player_position.y - 73, player_position.y - 73 + safe_zone_radius)
-			1:
-				enemy_position_x = randi_range(player_position.x + 136, player_position.x + 136 - safe_zone_radius)
-				enemy_position_y = randi_range(player_position.y - 73, player_position.y - 73 + safe_zone_radius)
-			2:
-				enemy_position_x = randi_range(player_position.x + 136, player_position.x + 136 - safe_zone_radius)
-				enemy_position_y = randi_range(player_position.y + 73, player_position.y + 73 - safe_zone_radius)
-			3:
-				enemy_position_x = randi_range(player_position.x - 136, player_position.x - 136 + safe_zone_radius)
-				enemy_position_y = randi_range(player_position.y + 73, player_position.y + 73 - safe_zone_radius)
-		
+		var enemy_position = calculate_enemy_position(spawn_boundaries)
+		while(player_safe_zone.has_point(enemy_position)):
+			print("recalculating enemy_position")
+			enemy_position = calculate_enemy_position(spawn_boundaries)
+
 		var enemy_type = randi_range(0, 1)
 
 		var enemy
@@ -57,11 +53,18 @@ func _on_hud_countdown_completed():
 			enemy = yenemy_scene.instantiate()
 
 		enemy.set_target($Player)
-		enemy.position.x = enemy_position_x
-		enemy.position.y = enemy_position_y
+		enemy.position.x = enemy_position.x
+		enemy.position.y = enemy_position.y
 		add_child(enemy)
 
-
+func calculate_enemy_position(spawn_boundaries: Rect2) -> Vector2:
+	var enemy_position_x = randi_range(spawn_boundaries.position.x, spawn_boundaries.end.x)
+	var enemy_position_y = randi_range(spawn_boundaries.position.y, spawn_boundaries.end.y)
+	var enemy_position = Vector2(enemy_position_x, enemy_position_y)
+	print(str("enemy_position ", enemy_position))
+	return enemy_position
+	
+	
 func _on_time_left_timer_timeout():
 	await hud.show_message("WINNER!", 0, Vector2(2.0, 2.0))
 	get_tree().call_group("enemies", "queue_free")

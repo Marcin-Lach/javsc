@@ -28,10 +28,11 @@ func countdown_to_start(countdown_seconds: int):
 		.set_loops(countdown_seconds))
 	tween.tween_property(countdown_label, "scale", Vector2(2, 2), 0.5)
 	tween.tween_property(countdown_label, "scale", Vector2(1, 1), 0.5)
+	
 	for second in countdown_seconds:
-		print(str(second))
 		countdown_label.text = str(countdown_seconds-second)
 		await get_tree().create_timer(1.0, false).timeout
+
 	countdown_label.hide()
 	time_left_label.show() 
 	countdown_completed.emit()

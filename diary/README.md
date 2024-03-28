@@ -505,11 +505,14 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 
 - add new label that is used only for showing Game Paused message
 
+### Day #28 Improve enemies spawning script
+- use `get_viewport_rect().size` to calculate position for spawning enemies
+
 ---
 
 ## Future
 
-### Day #2y - apply suggestions from Godot best practices (Day #20 - #2x)
+### Day #2y - apply suggestions from Godot best practices (Day #20 - #23)
 
 ### Day # Fix HUD scaling and labels overriding eachother
 - scaling labels in HUD messes up the centering (showing message with scaling set to more than Vector2(1.0, 1.0))
@@ -518,7 +521,7 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 	- Label.pivot_offset could work
 
 ### Day # Improve enemies spawning script
-- use `get_viewport_rect().size` to calculate position for spawning enemies
+- destroy enemies when they are outside of viewport and spawn new enemies up to specified limit 
 - `position.clamp(Vector2.ZERO, screen_size)` to limit range in which player may walk
 
 ### Day # - even more learning!
