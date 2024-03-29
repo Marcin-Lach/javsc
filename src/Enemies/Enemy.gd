@@ -19,6 +19,11 @@ func _ready():
 	spawn_timer.start()
 	spawn_sprite.show()
 
+func _process(delta):
+	var living_range = Rect2(target.global_position - get_viewport_rect().size/4*3, get_viewport_rect().size * 1.5)
+	if(living_range.has_point(self.global_position) == false):
+		queue_free()
+
 func _physics_process(delta):
 	if target == null:
 		return

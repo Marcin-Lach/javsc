@@ -508,6 +508,11 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 ### Day #28 Improve enemies spawning script
 - use `get_viewport_rect().size` to calculate position for spawning enemies
 
+### Day #29 Recycle enemies
+
+- if player runs too far from an enemy, destroy it and spawn new one
+- always maintain the same count of enemies
+
 ---
 
 ## Future
@@ -520,8 +525,7 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 	- put label inside Node2D and animate the parent (https://www.reddit.com/r/godot/comments/134yg1j/godot4_centering_scaled_label_outside_container/)
 	- Label.pivot_offset could work
 
-### Day # Improve enemies spawning script
-- destroy enemies when they are outside of viewport and spawn new enemies up to specified limit 
+### Day # Limit the place to run
 - `position.clamp(Vector2.ZERO, screen_size)` to limit range in which player may walk
 
 ### Day # - even more learning!
