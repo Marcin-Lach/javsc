@@ -513,9 +513,16 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 - if player runs too far from an enemy, destroy it and spawn new one
 - always maintain the same count of enemies
 
+### Day #30 Applying code style
+
+- https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html
+- Text Editor > Completion > Add Type Hints to get more hints about autocompletion that enhances intelisense
+
 ---
 
 ## Future
+
+### Day # set up code cleanup/styling tooling
 
 ### Day #2y - apply suggestions from Godot best practices (Day #20 - #23)
 
@@ -594,12 +601,6 @@ https://www.youtube.com/watch?v=Vwj_hX9h4zo
 
 ### Day # In-game Pause menu with option to quit, restart, go to settings
 
-### Day # align camera and viewport - world boundaries 
-Block the option of player going outside of the map
-fix object's positions
-	- make camera fully inside the viewport
-	- adjust calculations to accomodate for the change
-
 ### Day # - more working on movement 
 
  `delta` parameter and `linear_velocity` 
@@ -614,6 +615,12 @@ fix object's positions
 
 > Much better you than I
 Lyrics: Tool - Vicarious
+
+### Day # player mechanics - Dash
+
+### Day # player mechanics - Bullet-Time
+
+### Day # counting points for near missing enemies
 
 ### Day # - adding audio
 
@@ -644,7 +651,6 @@ Lyrics: Tool - Vicarious
 
 ### Day # - github actions that build project
 
-
 ### Day # - attach exe as Github Release
 
 ### Day # - Guard enemies
@@ -662,6 +668,9 @@ https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclus
 
 ## setting
 
+- dash
+- bullet time
+- get points for running close to enemies
 - get power from void
 - set traps
 - push enemies to or lure them to The Edge

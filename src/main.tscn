@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bmndo5gsewlhg"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_m6dua"]
+[ext_resource type="Script" path="res://main.gd" id="1_hn3a2"]
 [ext_resource type="Texture2D" uid="uid://jrr7qxwty5og" path="res://Player/player-sprite.png" id="2_06xwx"]
-[ext_resource type="Script" path="res://Player/Player.gd" id="2_ppx32"]
-[ext_resource type="Script" path="res://Camera.gd" id="4_tx8gv"]
+[ext_resource type="Script" path="res://Player/player.gd" id="3_42nji"]
+[ext_resource type="Script" path="res://camera.gd" id="5_k6lwj"]
 [ext_resource type="PackedScene" uid="uid://b0nltx1b6wv78" path="res://Hud/hud.tscn" id="5_vvory"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8su84"]
@@ -11,7 +11,7 @@ size = Vector2(16, 16)
 
 [node name="Main" type="Node2D"]
 process_mode = 3
-script = ExtResource("1_m6dua")
+script = ExtResource("1_hn3a2")
 enemies_count = 100
 
 [node name="Hud" parent="." instance=ExtResource("5_vvory")]
@@ -24,7 +24,7 @@ max_contacts_reported = 1
 contact_monitor = true
 lock_rotation = true
 linear_damp = 15.0
-script = ExtResource("2_ppx32")
+script = ExtResource("3_42nji")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
@@ -37,7 +37,7 @@ texture = ExtResource("2_06xwx")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(288, 162)
 position_smoothing_enabled = true
-script = ExtResource("4_tx8gv")
+script = ExtResource("5_k6lwj")
 
 [node name="TimeLeftTimer" type="Timer" parent="."]
 process_mode = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://1r2d3lwajqyp"]
 
-[ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_b760a"]
+[ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_b760a"]
 [ext_resource type="Texture2D" uid="uid://c3flckni7e1qd" path="res://Enemies/Yenemy/yenemy-sprite.png" id="1_dwxek"]
 [ext_resource type="Texture2D" uid="uid://b53dgikh114c7" path="res://Enemies/Yenemy/yenemy-spawning.png" id="3_vrqni"]
 [ext_resource type="Texture2D" uid="uid://c772b11gusfjr" path="res://Enemies/Yenemy/yenemy-sprite2.png" id="4_0sml8"]

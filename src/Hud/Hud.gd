@@ -18,7 +18,7 @@ func set_time_left(time_left : float):
 	var formatted_time_left = "%02d:%02d" % [minutes, seconds]
 	time_left_label.text = formatted_time_left
 	
-	if seconds == 0 && minutes == 0:
+	if seconds == 0 and minutes == 0:
 		time_left_label.hide() 
 
 func countdown_to_start(countdown_seconds: int):
