@@ -518,6 +518,13 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 - https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html
 - Text Editor > Completion > Add Type Hints to get more hints about autocompletion that enhances intelisense
 
+### Day #31 Add dashing (through the snow)
+
+- https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.webp
+- dash should briefly increase players movement, resulting in exhaustion at the end and slowing down player a little bit below normal speed
+- Tweens will be used to modifying Player's speed multiplier 
+- testing Transitions - Back, Elastic and Spring looks like good candidate for dashing
+
 ---
 
 ## Future

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cgg5pnivm85or"]
 
+[ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_2sfpv"]
 [ext_resource type="Texture2D" uid="uid://p60rh5xrtjby" path="res://Enemies/Renemy/renemy-sprite.png" id="1_6pieb"]
-[ext_resource type="Script" path="res://Enemies/Enemy.gd" id="1_ffdp6"]
 [ext_resource type="Texture2D" uid="uid://c8txqkxnyqlex" path="res://Enemies/Renemy/renemy-spawning.png" id="3_sxvv6"]
 [ext_resource type="Texture2D" uid="uid://cnbl1phrv3op2" path="res://Enemies/Renemy/renemy-sprite2.png" id="4_hmshc"]
 [ext_resource type="Texture2D" uid="uid://ckbycwv25twlt" path="res://Enemies/Renemy/renemy-sprite3.png" id="5_p62jb"]
@@ -33,7 +33,7 @@ animations = [{
 mass = 3.0
 gravity_scale = 0.0
 linear_damp = 5.0
-script = ExtResource("1_ffdp6")
+script = ExtResource("1_2sfpv")
 speed = 30
 metadata/_edit_group_ = true
 

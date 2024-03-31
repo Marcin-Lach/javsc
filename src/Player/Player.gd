@@ -1,6 +1,10 @@
 extends RigidBody2D
+class_name Player
 
-@export var speed = 100
+@export var _speed = 100
+var _dash_speed_multiplier = 3.0 as float
+var _current_speed_multiplier = 1.0 as float
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,12 +15,27 @@ func _ready():
 func _process(delta):
 	pass
 	
+	
 func set_velocity():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
-	linear_velocity = input_direction * speed
-	
+
+	if _current_speed_multiplier == 1.0:
+		if Input.is_action_just_pressed("dash"):
+			_current_speed_multiplier = _dash_speed_multiplier
+			
+			var speed_multiplier_tween = (create_tween()
+					.set_pause_mode(Tween.TWEEN_PAUSE_STOP)
+					.set_ease(Tween.EASE_IN_OUT)
+					.set_trans(Tween.TRANS_BACK)) # this will make player exceed the _dash_speed_multiplier briefly, but then _current_speed_multiplier will fall below 1.0 for a short period
+			speed_multiplier_tween.tween_property(self, "_current_speed_multiplier", 1.0, 0.5)
+			
+	print(str("_current_speed_multiplier: ", _current_speed_multiplier))
+	linear_velocity = input_direction * _speed * _current_speed_multiplier
+
+
 func _physics_process(delta):
 	set_velocity()	
+
 
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):

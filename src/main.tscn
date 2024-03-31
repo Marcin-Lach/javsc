@@ -17,6 +17,7 @@ enemies_count = 100
 [node name="Hud" parent="." instance=ExtResource("5_vvory")]
 
 [node name="Player" type="RigidBody2D" parent="."]
+process_mode = 1
 texture_filter = 1
 position = Vector2(288, 163)
 gravity_scale = 0.0
