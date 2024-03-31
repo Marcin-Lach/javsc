@@ -523,7 +523,9 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 - https://raw.githubusercontent.com/godotengine/godot-docs/master/img/tween_cheatsheet.webp
 - dash should briefly increase players movement, resulting in exhaustion at the end and slowing down player a little bit below normal speed
 - Tweens will be used to modifying Player's speed multiplier 
-- testing Transitions - Back, Elastic and Spring looks like good candidate for dashing
+- testing Transitions - `Back`, `Elastic` and `Spring` looks like good candidate for dashing
+![Tween Transition comparison - Back looks the most appropriate by initially exeeding the threshold and then gonig a bit below at the end](./pics/day31-tween-tran-comparison.png)
+- `Back` has been selected for dash
 
 ---
 
@@ -680,4 +682,8 @@ https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclus
 - get points for running close to enemies
 - get power from void
 - set traps
-- push enemies to or lure them to The Edge
+	- version 1 : player leaves colorful trail that captures enemies that walk on it 
+	- version 2 : player has to draw "trap" by leaving a trail, trap is completed when player reaches the begining of the trail, all enemies captured inside the trail are trapped and consumed by void
+	- alternative mechanics : push enemies from or lure them to The Edge
+
+

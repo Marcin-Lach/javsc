@@ -44,6 +44,10 @@ Defeating enemies will provide experience, which can be used to train the charac
 Player will have to survive 2 waves in order to win the game.  
 Publish built game somewhere (hopefully in GitHub Releases). 
 
+#### Day 31 game status 
+
+![](./diary/pics/day31-game-status.gif)
+
 ### Phase 2
 
 New enemy types will be added.  
