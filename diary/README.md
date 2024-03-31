@@ -622,11 +622,6 @@ https://www.youtube.com/watch?v=Vwj_hX9h4zo
 
 ### Day # - attacking enemies
 
-> Much better you than I
-Lyrics: Tool - Vicarious
-
-### Day # player mechanics - Dash
-
 ### Day # player mechanics - Bullet-Time
 
 ### Day # counting points for near missing enemies
@@ -680,10 +675,20 @@ https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclus
 - dash
 - bullet time
 - get points for running close to enemies
-- get power from void
+- get power from The Void
 - set traps
-	- version 1 : player leaves colorful trail that captures enemies that walk on it 
-	- version 2 : player has to draw "trap" by leaving a trail, trap is completed when player reaches the begining of the trail, all enemies captured inside the trail are trapped and consumed by void
-	- alternative mechanics : push enemies from or lure them to The Edge
-
-
+	- player has to draw "trap" by leaving a trail
+	- trap is completed when player reaches the begining of the trail
+	- all enemies captured inside the trap are trapped and consumed by The Void
+	- [to consider] - enemies move faster on the trail until it is closed as a trap
+	- player dies when it enters the trap
+	- trap stays until end of round
+	- after trap is closed, new enemies avoid the trap 
+		- [to consider] - can enemies be pushed by other enemies into closed trap?
+		- alternative - after trap is closed, it is treated as a hole in map (The Void); player is essentially cutting out the map
+	- player should decide to turn trail on and off
+	- to leave the trail, player must use ink; 
+		- ink can be obtained by sacrificing enemies to The Void (catching them into trap)
+		- player earns some ink after completing each wave
+			- wave ends with the void flooding whole screen (only white triangle from player's sprite remains visible)
+- alternative mechanics : push enemies from or lure them to The Edge

@@ -34,15 +34,16 @@ Main way of doing so will be eliminating hordes of enemies. Other way might be r
 
 Features that I plan to deliver in Phase 1:
 
-Player will be controlling a character, that is running on a plane with set boundaries.  
-Keyboard and PS4 Gamepad will be supported input devices.  
-Camera will be following the player.  
-There will be single type of enemy simply following player, trying to catch it.  
-Enemies will be spawning at random locations on map in throughout the time of wave.  
-Player will have melee and ranged weapon to choose from. 
-Defeating enemies will provide experience, which can be used to train the character.  
-Player will have to survive 2 waves in order to win the game.  
-Publish built game somewhere (hopefully in GitHub Releases). 
+✅ Player will be controlling a character, that is running on a plane.
+❌ Plane has set boundaries.  
+✅ Keyboard and PS4 Gamepad will be supported input devices.  
+✅ Camera will be following the player.  
+✅ There will be single type of enemy simply following player, trying to catch it.  
+✅ Enemies will be spawning at random locations on map in throughout the time of wave.  
+❌ Player will have melee and ranged weapon to choose from. 
+❌ Defeating enemies will provide experience, which can be used to train the character.  
+❌ Player will have to survive 2 waves in order to win the game.  
+❌ Publish built game somewhere (hopefully in GitHub Releases). 
 
 #### Day 31 game status 
 
@@ -62,4 +63,5 @@ Phase 3 is a place for new ideas.
 ## How to play
 
 At the moment, only way to run this is by pressing Play from within Godot Engine.  
-Player can be controller by keyboard (using arrows) or PS4 gamepad (using left analogue stick).  
+Player can be controlled by keyboard (using arrows and spacebar) or PS4 gamepad (using left analogue stick and right bumper). Pausing Game is done by escape button on keyboard or options button on PS4 gamepad.  
+Other game pads might work but has not been tested.   
