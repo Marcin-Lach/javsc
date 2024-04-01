@@ -34,7 +34,7 @@ Main way of doing so will be eliminating hordes of enemies. Other way might be r
 
 Features that I plan to deliver in Phase 1:
 
-✅ Player will be controlling a character, that is running on a plane.
+✅ Player will be controlling a character, that is running on a plane.  
 ❌ Plane has set boundaries.  
 ✅ Keyboard and PS4 Gamepad will be supported input devices.  
 ✅ Camera will be following the player.  
@@ -43,7 +43,7 @@ Features that I plan to deliver in Phase 1:
 ❌ Player will have melee and ranged weapon to choose from. 
 ❌ Defeating enemies will provide experience, which can be used to train the character.  
 ❌ Player will have to survive 2 waves in order to win the game.  
-❌ Publish built game somewhere (hopefully in GitHub Releases). 
+❌ Publish built game somewhere (hopefully in GitHub Releases).  
 
 #### Day 31 game status 
 
