@@ -40,7 +40,7 @@ Features that I plan to deliver in Phase 1:
 ✅ Camera will be following the player.  
 ✅ There will be single type of enemy simply following player, trying to catch it.  
 ✅ Enemies will be spawning at random locations on map in throughout the time of wave.  
-❌ Player will have melee and ranged weapon to choose from. 
+❌ Player will have melee and ranged weapon to choose from.  
 ❌ Defeating enemies will provide experience, which can be used to train the character.  
 ❌ Player will have to survive 2 waves in order to win the game.  
 ❌ Publish built game somewhere (hopefully in GitHub Releases).  
