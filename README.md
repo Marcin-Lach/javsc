@@ -21,7 +21,7 @@
 
 **JAVSC** stands for Just Another [Vampire Survivors](https://store.steampowered.com/app/1794680/Vampire_Survivors/) Clone. Main inspiration is [Brotato](https://store.steampowered.com/app/1942280/Brotato/) game.   
 In this repository I'm learning creating games in [Godot Engine](https://godotengine.org/) and documenting my path to creating my first game.
-Whole process is being recorded and documented as a [daily vlog](https://www.youtube.com/watch?v=tK4yK3d1Flg&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3) on youtube.  
+~~Whole~~ Part of the process is being recorded and documented as a [daily vlog](https://www.youtube.com/watch?v=tK4yK3d1Flg&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3) on youtube.  
 Additional materials will be documented in [diary folder](./diary/README.md) in this repository.  
 
 ## Scope of the project
