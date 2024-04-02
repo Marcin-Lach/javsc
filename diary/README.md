@@ -527,9 +527,15 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 ![Tween Transition comparison - Back looks the most appropriate by initially exeeding the threshold and then gonig a bit below at the end](./pics/day31-tween-tran-comparison.png)
 - `Back` has been selected for dash
 
+### Day #32 Options menu
+- [Every UI Node Explained in 12 Minutes](https://www.youtube.com/watch?v=sPfoZy-cW-E)
+- new scene which will be used to control Options
+
 ---
 
 ## Future
+
+### Day # In-game Pause menu with option to quit, restart, go to settings
 
 ### Day # set up code cleanup/styling tooling
 
@@ -601,14 +607,6 @@ https://www.youtube.com/watch?v=Vwj_hX9h4zo
 ### Day # Adding Node state machine to Player animation
 
 - AnimatedSprite2D + AnimationPlayer + AnimationTree => https://www.youtube.com/watch?v=1DwT5Xe8n6Y
-
-### Day # Add HUD
-- [Every UI Node Explained in 12 Minutes](https://www.youtube.com/watch?v=sPfoZy-cW-E)
-
-### Day # Options menu
-- [Every UI Node Explained in 12 Minutes](https://www.youtube.com/watch?v=sPfoZy-cW-E)
-
-### Day # In-game Pause menu with option to quit, restart, go to settings
 
 ### Day # - more working on movement 
 
