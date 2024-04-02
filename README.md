@@ -21,7 +21,7 @@
 
 **JAVSC** stands for Just Another [Vampire Survivors](https://store.steampowered.com/app/1794680/Vampire_Survivors/) Clone. Main inspiration is [Brotato](https://store.steampowered.com/app/1942280/Brotato/) game.   
 In this repository I'm learning creating games in [Godot Engine](https://godotengine.org/) and documenting my path to creating my first game.
-Whole process is being recorded and documented as a [daily vlog](https://www.youtube.com/watch?v=tK4yK3d1Flg&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3) on youtube.  
+~~Whole~~ Part of the process is being recorded and documented as a [daily vlog](https://www.youtube.com/watch?v=tK4yK3d1Flg&list=PLij67yf0bICPZl7FxQ5w4sn3nveCW8yf3) on youtube.  
 Additional materials will be documented in [diary folder](./diary/README.md) in this repository.  
 
 ## Scope of the project
@@ -34,16 +34,16 @@ Main way of doing so will be eliminating hordes of enemies. Other way might be r
 
 Features that I plan to deliver in Phase 1:
 
-✅ Player will be controlling a character, that is running on a plane.
+✅ Player will be controlling a character, that is running on a plane.  
 ❌ Plane has set boundaries.  
 ✅ Keyboard and PS4 Gamepad will be supported input devices.  
 ✅ Camera will be following the player.  
 ✅ There will be single type of enemy simply following player, trying to catch it.  
 ✅ Enemies will be spawning at random locations on map in throughout the time of wave.  
-❌ Player will have melee and ranged weapon to choose from. 
+❌ Player will have melee and ranged weapon to choose from.  
 ❌ Defeating enemies will provide experience, which can be used to train the character.  
 ❌ Player will have to survive 2 waves in order to win the game.  
-❌ Publish built game somewhere (hopefully in GitHub Releases). 
+❌ Publish built game somewhere (hopefully in GitHub Releases).  
 
 #### Day 31 game status 
 
