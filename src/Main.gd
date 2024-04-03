@@ -22,21 +22,21 @@ func _process(delta):
 	
 	if _top_up_enemies:
 		if get_tree().get_nodes_in_group("enemies").size() < enemies_count:
-			spawn_enemies(1)
+			_spawn_enemies(1)
 
 	if Input.is_action_just_pressed("pause_menu"):
-		get_tree().paused = !get_tree().paused
+		_pause_game()
 		_hud.toggle_pause()
 
 
 func _on_hud_countdown_completed():
 	_time_left_timer.start()	
-	_hud.show_message("SURVIVE!", 2, Vector2(2.0, 2.0))
-	spawn_enemies(enemies_count)
+	_hud.show_message("SURVIVE!", 2, Vector2(1.0, 1.0))
+	_spawn_enemies(enemies_count)
 	_top_up_enemies = true
 
 
-func spawn_enemies(enemies_to_spawn : int):
+func _spawn_enemies(enemies_to_spawn : int):
 	var player_position = $Player.global_position
 	var half_viewport_size = get_viewport_rect().size/2
 	var safe_zone = 55
@@ -45,9 +45,9 @@ func spawn_enemies(enemies_to_spawn : int):
 	var spawn_boundaries = Rect2(Vector2(player_position.x - half_viewport_size.x, player_position.y - half_viewport_size.y), get_viewport_rect().size)
 	
 	for i in enemies_to_spawn:
-		var enemy_position = calculate_enemy_position(spawn_boundaries)
+		var enemy_position = _calculate_enemy_position(spawn_boundaries)
 		while(player_safe_zone.has_point(enemy_position)):
-			enemy_position = calculate_enemy_position(spawn_boundaries)
+			enemy_position = _calculate_enemy_position(spawn_boundaries)
 
 		var enemy_type = randi_range(0, 1)
 
@@ -63,14 +63,31 @@ func spawn_enemies(enemies_to_spawn : int):
 		add_child(enemy)
 
 
-func calculate_enemy_position(spawn_boundaries: Rect2) -> Vector2:
+func _calculate_enemy_position(spawn_boundaries: Rect2) -> Vector2:
 	var enemy_position_x = randi_range(spawn_boundaries.position.x, spawn_boundaries.end.x)
 	var enemy_position_y = randi_range(spawn_boundaries.position.y, spawn_boundaries.end.y)
 	var enemy_position = Vector2(enemy_position_x, enemy_position_y)
 	return enemy_position
 
 
+func _pause_game():
+	get_tree().paused = !get_tree().paused
+
+
 func _on_time_left_timer_timeout():
 	_top_up_enemies = false
 	await _hud.show_message("WINNER!", 0, Vector2(2.0, 2.0))
 	get_tree().call_group("enemies", "queue_free")
+
+
+func _on_hud_pause_menu_hidden() -> void:
+	print("pause menu hidden")
+	_pause_game()
+
+
+func _on_hud_restart_game_requested() -> void:
+	print("restart requested")
+	_pause_game()
+	get_tree().change_scene_to_file("res://main.tscn")
+
+

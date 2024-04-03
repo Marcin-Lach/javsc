@@ -1,16 +1,19 @@
 extends CanvasLayer
-
 class_name Hud
+
 @onready var countdown_label = $CountdownNodeLabel
 @onready var message_label = $MessageNodeLabel
 @onready var time_left_label = $TimeLeftNodeLabel
-@onready var pause_label = $PauseLabel
+@onready var pause_menu: VBoxContainer = $PauseMenu
+@onready var resume_button: Button = $PauseMenu/ResumeButton
 
 signal countdown_completed
+signal pause_menu_hidden
+signal restart_game_requested
 
 func _ready():
+	pause_menu.hide()
 	message_label.hide()
-	pause_label.hide()
 
 func set_time_left(time_left : float):
 	var minutes = time_left / 60
@@ -37,8 +40,12 @@ func countdown_to_start(countdown_seconds: int):
 	time_left_label.show() 
 	countdown_completed.emit()
 
+
 func toggle_pause():
-	pause_label.visible = !pause_label.visible
+	pause_menu.visible = !pause_menu.visible
+	if pause_menu.visible:
+		resume_button.grab_focus()
+
 
 func show_message(message: String, hide_after_seconds: int = 0, scaling : Vector2 = Vector2(1.0, 1.0)):
 	message_label.text = message
@@ -51,5 +58,26 @@ func show_message(message: String, hide_after_seconds: int = 0, scaling : Vector
 		
 	message_label.scale = Vector2(1.0, 1.0)
 
+
 func hide_message():
 	message_label.hide()
+
+
+func _on_resume_button_pressed() -> void:
+	print("hud: pause menu hidden")
+	pause_menu.hide()
+	pause_menu_hidden.emit()
+
+
+func _on_restart_button_pressed() -> void:
+	# TODO replace with a confirmation popup 
+	print("hud: restart requested")
+	restart_game_requested.emit()
+	
+
+func _on_quit_button_pressed() -> void:
+	# TODO replace with a confirmation popup 
+	print("hud: quit pressed")
+	get_tree().quit()
+
+

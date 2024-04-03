@@ -46,5 +46,7 @@ wait_time = 20.0
 one_shot = true
 
 [connection signal="countdown_completed" from="Hud" to="." method="_on_hud_countdown_completed"]
+[connection signal="pause_menu_hidden" from="Hud" to="." method="_on_hud_pause_menu_hidden"]
+[connection signal="restart_game_requested" from="Hud" to="." method="_on_hud_restart_game_requested"]
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
 [connection signal="timeout" from="TimeLeftTimer" to="." method="_on_time_left_timer_timeout"]

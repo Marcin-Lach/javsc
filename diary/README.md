@@ -531,11 +531,15 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 - [Every UI Node Explained in 12 Minutes](https://www.youtube.com/watch?v=sPfoZy-cW-E)
 - new scene which will be used to control Options
 
+### Day #33 In-game Pause menu with option to quit, restart, go to settings
+- modified HUD scene to contain few buttons for in-game pause menu
+
 ---
 
 ## Future
 
-### Day # In-game Pause menu with option to quit, restart, go to settings
+### Day # Add Options to In-game Pause menu
+- add as a child of current scene
 
 ### Day # set up code cleanup/styling tooling
 
