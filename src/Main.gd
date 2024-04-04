@@ -10,13 +10,13 @@ var _top_up_enemies = false as bool
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	$Camera2D.set_target($Player)
 	await _hud.countdown_to_start(COUNTDOWN_BEFORE_START_SECONDS)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta) -> void:
 	var time_left = _time_left_timer.time_left
 	_hud.set_time_left(time_left)
 	
@@ -29,14 +29,14 @@ func _process(delta):
 		_hud.toggle_pause()
 
 
-func _on_hud_countdown_completed():
+func _on_hud_countdown_completed() -> void:
 	_time_left_timer.start()	
 	_hud.show_message("SURVIVE!", 2, Vector2(1.0, 1.0))
 	_spawn_enemies(enemies_count)
 	_top_up_enemies = true
 
 
-func _spawn_enemies(enemies_to_spawn : int):
+func _spawn_enemies(enemies_to_spawn : int) -> void:
 	var player_position = $Player.global_position
 	var half_viewport_size = get_viewport_rect().size/2
 	var safe_zone = 55
@@ -70,11 +70,11 @@ func _calculate_enemy_position(spawn_boundaries: Rect2) -> Vector2:
 	return enemy_position
 
 
-func _pause_game():
+func _pause_game() -> void:
 	get_tree().paused = !get_tree().paused
 
 
-func _on_time_left_timer_timeout():
+func _on_time_left_timer_timeout() -> void:
 	_top_up_enemies = false
 	await _hud.show_message("WINNER!", 0, Vector2(2.0, 2.0))
 	get_tree().call_group("enemies", "queue_free")

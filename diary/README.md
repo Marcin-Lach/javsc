@@ -534,6 +534,10 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 ### Day #33 In-game Pause menu with option to quit, restart, go to settings
 - modified HUD scene to contain few buttons for in-game pause menu
 
+### Day #34 In-game Pause menu with option to quit, restart, go to settings
+- added scene for listing Open Source projects used - to be enhanced with 
+https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclusion
+
 ---
 
 ## Future
@@ -667,7 +671,7 @@ https://www.youtube.com/watch?v=Vwj_hX9h4zo
 
 - BackBufferCopy node
 
-### Day # show licences
+### Day # update Credits scene to show licences
 
 https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclusion
 

@@ -27,18 +27,37 @@ grow_vertical = 2
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_left = NodePath("../../CreditsButton")
+focus_neighbor_top = NodePath("../../CreditsButton")
+focus_neighbor_right = NodePath("../../CreditsButton")
 text = "Start Game"
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../CreditsButton")
+focus_neighbor_right = NodePath("../../CreditsButton")
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../StartButton")
+focus_neighbor_left = NodePath("../../CreditsButton")
+focus_neighbor_right = NodePath("../../CreditsButton")
+focus_neighbor_bottom = NodePath("../../CreditsButton")
 text = "Quit"
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 433.0
+offset_top = 273.0
+offset_right = 529.0
+offset_bottom = 304.0
+focus_neighbor_left = NodePath("../VBoxContainer/QuitButton")
+focus_neighbor_top = NodePath("../VBoxContainer/QuitButton")
+focus_neighbor_right = NodePath("../VBoxContainer/StartButton")
+focus_neighbor_bottom = NodePath("../VBoxContainer/StartButton")
+text = "Credits"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
