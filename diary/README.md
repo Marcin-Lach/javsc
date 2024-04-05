@@ -527,18 +527,21 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 ![Tween Transition comparison - Back looks the most appropriate by initially exeeding the threshold and then gonig a bit below at the end](./pics/day31-tween-tran-comparison.png)
 - `Back` has been selected for dash
 
-### Day #32 Options menu
+### Day #32 Brainstorming at the midnight
+- came up with few ideas for mechanics and setting
+
+### Day #33 Options menu
 - [Every UI Node Explained in 12 Minutes](https://www.youtube.com/watch?v=sPfoZy-cW-E)
 - new scene which will be used to control Options
 
-### Day #33 In-game Pause menu with option to quit, restart, go to settings
+### Day #34 In-game Pause menu with option to quit, restart, go to settings
 - modified HUD scene to contain few buttons for in-game pause menu
 
-### Day #34 In-game Pause menu with option to quit, restart, go to settings
+### Day #35 Credits scene
 - added scene for listing Open Source projects used - to be enhanced with 
 https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclusion
 
-### Day #35 Learning 
+### Day #36 Learning 
 - https://docs.godotengine.org/en/stable/about/faq.html#how-should-assets-be-created-to-handle-multiple-resolutions-and-aspect-ratios
 - https://godotengine.org/article/why-isnt-godot-ecs-based-game-engine/
 	- Entity component system - An ECS comprises entities composed from components of data, with systems which operate on the components; attaching components to entities (which usually are just an Id, as in Unity), which are then processed by systems; 
