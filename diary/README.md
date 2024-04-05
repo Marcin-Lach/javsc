@@ -538,18 +538,38 @@ Topic: Decouple the HUD from Main Node by defining API and signals for HUD
 - added scene for listing Open Source projects used - to be enhanced with 
 https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclusion
 
+### Day #35 Learning 
+- https://docs.godotengine.org/en/stable/about/faq.html#how-should-assets-be-created-to-handle-multiple-resolutions-and-aspect-ratios
+- https://godotengine.org/article/why-isnt-godot-ecs-based-game-engine/
+	- Entity component system - An ECS comprises entities composed from components of data, with systems which operate on the components; attaching components to entities (which usually are just an Id, as in Unity), which are then processed by systems; 
+		- is good for heavy data-oriented cases, with tens of thousands objects being processed at once (not the case for smaller games)
+		- https://en.wikipedia.org/wiki/Entity_component_system
+		- https://en.wikipedia.org/wiki/Data-oriented_design
+		- https://pl.wikipedia.org/wiki/GPGPU
+	- Godot focuses on inheritance and having Data and Logic in the same object (Node), but still can work out with heavy data-oriented games
+		- Servers and RIDs - for further reading
+
 ---
 
 ## Future
 
+### Day # Add upgrade graphics
+- https://github.com/Orama-Interactive/Pixelorama
+- https://github.com/RodZill4/material-maker
+
 ### Day # Add Options to In-game Pause menu
 - add as a child of current scene
+
+### Day # Options - multiple resolutions
+- https://docs.godotengine.org/en/stable/tutorials/rendering/multiple_resolutions.html#doc-multiple-resolutions
+- https://docs.godotengine.org/en/stable/about/faq.html#how-should-assets-be-created-to-handle-multiple-resolutions-and-aspect-ratios
 
 ### Day # set up code cleanup/styling tooling
 
 ### Day #2y - apply suggestions from Godot best practices (Day #20 - #23)
 
 ### Day # Fix HUD scaling and labels overriding eachother
+- https://docs.godotengine.org/en/stable/tutorials/ui/size_and_anchors.html#doc-size-and-anchors
 - scaling labels in HUD messes up the centering (showing message with scaling set to more than Vector2(1.0, 1.0))
 	- scaling labels is shitty, because anchor of labels are top left corner
 	- put label inside Node2D and animate the parent (https://www.reddit.com/r/godot/comments/134yg1j/godot4_centering_scaled_label_outside_container/)
@@ -561,7 +581,6 @@ https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclus
 ### Day # - even more learning!
 
 Go through godot docs
-- https://docs.godotengine.org/en/stable/about/faq.html#how-should-assets-be-created-to-handle-multiple-resolutions-and-aspect-ratios
 - https://docs.godotengine.org/en/stable/getting_started/introduction/index.html
 
 
@@ -576,6 +595,8 @@ Go through godot docs
 - https://docs.godotengine.org/en/stable/tutorials/audio/index.html
 - https://docs.godotengine.org/en/stable/tutorials/i18n/index.html
 - https://docs.godotengine.org/en/stable/tutorials/export/index.html
+- Servers and RIDs
+	- https://godotengine.org/article/why-does-godot-use-servers-and-rids/
 
 ### Day # - script styling
 
