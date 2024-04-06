@@ -552,6 +552,9 @@ https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclus
 	- Godot focuses on inheritance and having Data and Logic in the same object (Node), but still can work out with heavy data-oriented games
 		- Servers and RIDs - for further reading
 
+### Day #37 more learning
+
+
 ---
 
 ## Future
