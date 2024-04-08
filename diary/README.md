@@ -556,6 +556,8 @@ https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclus
 
 ### Day #38 Even more learning
 
+### Day #39 More Even more learning
+
 ---
 
 ## Future
