@@ -7,31 +7,31 @@ var _current_speed_multiplier = 1.0 as float
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta) -> void:
 	pass
 
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	_set_velocity()	
 
 
-func _on_body_entered(body):
+func _on_body_entered(body) -> void:
 	if body.is_in_group("enemies"):
 		get_tree().reload_current_scene()
 
 
-func _set_velocity():
+func _set_velocity() -> void:
 	var input_direction = Input.get_vector("left", "right", "up", "down") as Vector2
 	_handle_dash(input_direction)
 	linear_velocity = input_direction * _speed * _current_speed_multiplier
 
 
-func _handle_dash(current_input_direction : Vector2):
+func _handle_dash(current_input_direction : Vector2) -> void:
 	if current_input_direction.is_zero_approx() == false:
 		if Input.is_action_just_pressed("dash"):
 			if _current_speed_multiplier == 1.0:

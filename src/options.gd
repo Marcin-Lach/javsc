@@ -1,7 +1,7 @@
 extends Control
 
 
-func _ready():
+func _ready() -> void:
 	$VBoxContainer/BackButton.grab_focus()
 
 

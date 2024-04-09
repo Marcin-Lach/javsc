@@ -2,15 +2,15 @@ extends Camera2D
 
 var target : Node2D
 
-func set_target(theTarget : Node2D):
+func set_target(theTarget : Node2D) -> void:
 	target = theTarget
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta) -> void:
 	if target != null:
 		position = target.position

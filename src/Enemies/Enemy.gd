@@ -9,29 +9,29 @@ extends RigidBody2D
 var target : Node2D
 var spawn_tick_count = 10
 
-func set_target(theTarget : Node2D):
+func set_target(theTarget : Node2D) -> void:
 	target = theTarget
 	
-func _ready():
+func _ready() -> void:
 	sprite_2d.hide()
 	collision_shape_2d.disabled = true
 	self.freeze = true
 	spawn_timer.start()
 	spawn_sprite.show()
 
-func _process(delta):
+func _process(delta) -> void:
 	var living_range = Rect2(target.global_position - get_viewport_rect().size/4*3, get_viewport_rect().size * 1.5)
 	if(living_range.has_point(self.global_position) == false):
 		queue_free()
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	if target == null:
 		return
 
 	var direction_vector = position.direction_to(target.position)
 	linear_velocity = direction_vector * speed
 
-func _on_spawn_timer_timeout():
+func _on_spawn_timer_timeout() -> void:
 	if spawn_tick_count > 0:
 		spawn_tick_count -= 1
 		spawn_sprite.visible = !spawn_sprite.visible

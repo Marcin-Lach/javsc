@@ -81,12 +81,10 @@ func _on_time_left_timer_timeout() -> void:
 
 
 func _on_hud_pause_menu_hidden() -> void:
-	print("pause menu hidden")
 	_pause_game()
 
 
 func _on_hud_restart_game_requested() -> void:
-	print("restart requested")
 	_pause_game()
 	get_tree().change_scene_to_file("res://main.tscn")
 

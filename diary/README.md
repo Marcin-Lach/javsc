@@ -558,9 +558,16 @@ https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclus
 
 ### Day #39 More Even more learning
 
+### Day #40 Minor refactorings
+- to have Static Typing style, you should enable settings "Text Editor > Completion > Add Type Hints"
+- also add some warnings in future : https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/static_typing.html#warning-system
+
 ---
 
 ## Future
+
+### Day # Enable warnings to improve Static Typing
+- https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/static_typing.html#warning-system
 
 ### Day # Add upgrade graphics
 - https://github.com/Orama-Interactive/Pixelorama
