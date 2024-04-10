@@ -562,10 +562,20 @@ https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclus
 - to have Static Typing style, you should enable settings "Text Editor > Completion > Add Type Hints"
 - also add some warnings in future : https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/static_typing.html#warning-system
 
+### Day #41 Analyze what's left and learning
+
+
 ---
 
 ## Future
 
+### Day # - script styling
+https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html
+- grouping @export variables into `@export_group` and `@export_category`  
+- value managers (e.g. `@export_range`)
+- Godot naming conventions for GDScript - Classes (nodes) use PascalCase, variables and functions use snake_case, and constants use ALL_CAPS (See GDScript style guide)
+
+### Day # set up code cleanup/styling tooling
 ### Day # Enable warnings to improve Static Typing
 - https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/static_typing.html#warning-system
 
@@ -579,8 +589,6 @@ https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclus
 ### Day # Options - multiple resolutions
 - https://docs.godotengine.org/en/stable/tutorials/rendering/multiple_resolutions.html#doc-multiple-resolutions
 - https://docs.godotengine.org/en/stable/about/faq.html#how-should-assets-be-created-to-handle-multiple-resolutions-and-aspect-ratios
-
-### Day # set up code cleanup/styling tooling
 
 ### Day #2y - apply suggestions from Godot best practices (Day #20 - #23)
 
@@ -614,12 +622,6 @@ Go through godot docs
 - Servers and RIDs
 	- https://godotengine.org/article/why-does-godot-use-servers-and-rids/
 
-### Day # - script styling
-
-https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_styleguide.html
-- grouping @export variables into `@export_group` and `@export_category`  
-- value managers (e.g. `@export_range`)
-- Godot naming conventions for GDScript - Classes (nodes) use PascalCase, variables and functions use snake_case, and constants use ALL_CAPS (See GDScript style guide)
 
 ### Day # - multiple game difficulties
 - passing parameters when loading a scene
