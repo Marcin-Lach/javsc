@@ -564,6 +564,8 @@ https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclus
 
 ### Day #41 Analyze what's left and learning
 
+### Day #42 Learning 
+https://docs.godotengine.org/en/stable/getting_started/introduction/index.html
 
 ---
 
