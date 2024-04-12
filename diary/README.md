@@ -567,6 +567,9 @@ https://docs.godotengine.org/en/stable/about/complying_with_licenses.html#inclus
 ### Day #42 Learning 
 https://docs.godotengine.org/en/stable/getting_started/introduction/index.html
 
+### Day #43 Learning continues
+https://docs.godotengine.org/en/stable/getting_started/introduction/index.html
+
 ---
 
 ## Future
