@@ -573,6 +573,14 @@ https://docs.godotengine.org/en/stable/getting_started/introduction/index.html
 ### Day #44 Learning continues
 https://docs.godotengine.org/en/stable/getting_started/introduction/index.html
 
+- nodes are the basic building blocks
+- scenes are created by nodes
+
+### Day #45 Learning continues
+https://docs.godotengine.org/en/stable/tutorials/editor/index.html
+https://docs.godotengine.org/en/stable/tutorials/export/feature_tags.html
+https://docs.godotengine.org/en/stable/community/asset_library/index.html
+
 ---
 
 ## Future
@@ -613,9 +621,6 @@ https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_sty
 ### Day # - even more learning!
 
 Go through godot docs
-- https://docs.godotengine.org/en/stable/getting_started/introduction/index.html
-
-
 - https://docs.godotengine.org/en/stable/tutorials/best_practices/index.html
 - https://docs.godotengine.org/en/stable/tutorials/scripting/index.html#core-features
 - https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/index.html
