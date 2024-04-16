@@ -583,6 +583,8 @@ https://docs.godotengine.org/en/stable/community/asset_library/index.html
 
 ### Day #46 Learning continues
 
+### Day #47 Learning continues
+
 ---
 
 ## Future
