@@ -11,7 +11,6 @@ var _top_up_enemies = false as bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Camera2D.set_target($Player)
 	await _hud.countdown_to_start(COUNTDOWN_BEFORE_START_SECONDS)
 
 

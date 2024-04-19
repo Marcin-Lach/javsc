@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmndo5gsewlhg"]
+[gd_scene load_steps=6 format=3 uid="uid://bmndo5gsewlhg"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_hn3a2"]
 [ext_resource type="Texture2D" uid="uid://jrr7qxwty5og" path="res://Player/player-sprite.png" id="2_06xwx"]
 [ext_resource type="Script" path="res://Player/player.gd" id="3_42nji"]
-[ext_resource type="Script" path="res://camera.gd" id="5_k6lwj"]
 [ext_resource type="PackedScene" uid="uid://b0nltx1b6wv78" path="res://Hud/hud.tscn" id="5_vvory"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8su84"]
@@ -35,10 +34,9 @@ debug_color = Color(0.117647, 0.615686, 0.576471, 0.407843)
 [node name="Sprite" type="Sprite2D" parent="Player"]
 texture = ExtResource("2_06xwx")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(288, 162)
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -1)
 position_smoothing_enabled = true
-script = ExtResource("5_k6lwj")
 
 [node name="TimeLeftTimer" type="Timer" parent="."]
 process_mode = 1
