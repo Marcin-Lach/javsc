@@ -585,7 +585,7 @@ https://docs.godotengine.org/en/stable/community/asset_library/index.html
 
 ### Day #50 Make Camera a child of Player node
 
-### Day #51 Learning continues
+### Day #51-52 Learning continues
 ---
 
 ## Future
